@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+@media only screen and (min-width: 320px) and (max-width: 479px) {
+  h1 {
+    color: blue
+  }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  h1 {
+    color: greenyellow
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  h1 {
+    color: purple
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1999px) {
+  h1 {
+    color: pink
+  }
+}
