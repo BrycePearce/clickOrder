@@ -1,0 +1,31 @@
+// Default - Portrait Mobile
+.header-banner {
+  background: #221E1F;
+  position: absolute;
+  height: 11vh;
+  top: 38px;
+}
+
+.header-logo {
+  position: absolute;
+  padding-left: 3px;
+  height: 89px;
+  width: 92px;
+}
+
+
+// Landscape Mobile
+@media (min-width: 576px) {}
+
+// Tablets
+@media (min-width: 768px) {}
+
+// Desktop
+@media (min-width: 992px) {
+  .header-banner {
+    background: pink;
+  }
+}
+
+// Large Desktop
+@media (min-width: 1200px) {}
