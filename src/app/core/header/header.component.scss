@@ -1,18 +1,30 @@
 // Default - Portrait Mobile
-.header-banner {
+
+.header-banner-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background: #221E1F;
-  position: absolute;
-  height: 11vh;
+  height: 75px;
   top: 38px;
 }
 
-.header-logo {
-  position: absolute;
-  padding-left: 3px;
+.header-logo-position {
+  position: relative;
+  padding-bottom: 55px;
+}
+
+.header-logo-img {
   height: 89px;
   width: 92px;
 }
 
+.banner-text {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
+}
 
 // Landscape Mobile
 @media (min-width: 576px) {}
