@@ -16,8 +16,8 @@ import { AppComponent } from './app.component';
     CoreModule,
     // AppRoutingModule
   ],
-  declarations: [
-    AppComponent, // components
+  declarations: [ // Components, directives and pipes are placed in module's declarations
+    AppComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
