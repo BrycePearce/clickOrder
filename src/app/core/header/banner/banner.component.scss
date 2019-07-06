@@ -1,7 +1,6 @@
 // Default - Portrait Mobile
 
 .banner-container {
-  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -35,9 +34,7 @@
 @media (min-width: 768px) {}
 
 // Desktop
-@media (min-width: 992px) {
-
-}
+@media (min-width: 992px) {}
 
 // Large Desktop
 @media (min-width: 1200px) {}

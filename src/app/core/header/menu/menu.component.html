@@ -1,4 +1,11 @@
-<!-- Menu type -->
-<section class="container-fluid w-100" style="height: 70px; background:purple">
-
+<section class="container-fluid w-100 d-flex flex-row justify-content-center" style="height: 70px; background:purple;">
+  <span class="p-2">
+    Menu
+  </span>
+  <span class="p-2">
+    Catering
+  </span>
 </section>
+<div *ngFor="let thing of things; let i = index">
+  {{i}}<br>
+</div>
