@@ -7,14 +7,12 @@ import { LandingMenuModule } from './landing-menu/landing-menu.module';
 
 // Components
 import { AppComponent } from './app.component';
-import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   imports: [ // modules
     BrowserModule,
     LandingMenuModule,
-    CoreModule,
-    MatCardModule
+    CoreModule
   ],
   declarations: [ // Components, directives and pipes are placed in module's declarations
     AppComponent,
