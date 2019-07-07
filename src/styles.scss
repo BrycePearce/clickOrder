@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+
+*,
+html,
+body {
+  font-family: 'Open Sans', sans-serif;
+}
 
 /* You can add global styles to this file, and also import other style files */
 @media only screen and (min-width: 320px) and (max-width: 479px) {
