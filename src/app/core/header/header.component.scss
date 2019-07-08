@@ -1,0 +1,89 @@
+// Default - Portrait Mobile
+
+.header-container {
+  background-color: #202124;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .5);
+  height: 112px;
+}
+
+.banner-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 75px;
+}
+
+.banner-logo-position {
+  position: relative;
+}
+
+.banner-logo-img {
+  height: 75px;
+  padding-left: 8px;
+}
+
+.banner-text {
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 11px;
+}
+
+.shopping-cart {
+  padding-right: 20px;
+}
+
+.hamburger-icon {
+  padding-left: 20px;
+}
+
+.header__nav {
+  margin-left: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 64px;
+}
+
+.header__nav-list {
+  display: table;
+  width: 100%;
+  padding: 0;
+}
+
+.header__nav-item {
+  display: table-cell;
+  text-align: center;
+  color: #9e9e9e;
+}
+
+.nav-link {
+  font-size: 20px;
+  display: inline-block;
+  line-height: 48px;
+  position: relative;
+  padding: 0px;
+}
+
+.nav-active {
+  background: white;
+  bottom: 0;
+  height: 4px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  transform: scaleY(1);
+  transform-origin: bottom;
+  transition: transform 235ms cubic-bezier(.4, 0, .2, 1);
+}
+
+// Landscape Mobile
+@media (min-width: 576px) {}
+
+// Tablets
+@media (min-width: 768px) {}
+
+// Desktop
+@media (min-width: 992px) {}
+
+// Large Desktop
+@media (min-width: 1200px) {}

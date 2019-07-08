@@ -1,2 +1,32 @@
-<app-banner></app-banner>
-<app-menu></app-menu>
+<!-- todo: sticky-top should only apply on mobile per Material Design -->
+<header class="header-container sticky-top">
+
+  <!-- Banner todo: revisit (too much text in banner?) https://material.io/design/components/app-bars-top.html# . Reference their actual top bar (not example) -->
+  <div class="container-fluid banner-container px-0">
+    <div class="hamburger-icon">
+      <img class="" src="../../../assets/toggleMenu2x.png">
+    </div>
+    <div class="banner-logo-position">
+      <!-- todo: resize for mobile optimization -->
+      <img class="banner-logo-img" alt="Responsive image" src="../../../assets/HeaderLogo.png">
+    </div>
+    <!-- <small class="banner-text">
+      This is where the address text will go
+      <div class="text-center">Phone number here</div>
+    </small> -->
+    <small class="banner-text shopping-cart">Shopping Cart</small>
+  </div>
+
+  <!-- Menu Navigation -->
+  <nav class="header__nav" role="navigation">
+    <ul class="header__nav-list">
+      <li class="header__nav-item">
+        <a class="nav-link" style="color:white">
+          Menu
+          <span class="nav-active"></span>
+        </a>
+      </li>
+      <li class="header__nav-item"><a class="nav-link">Catering</a></li>
+    </ul>
+  </nav>
+</header>
