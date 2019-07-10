@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { CoreModule } from './core/core.module';
 import { NgModule } from '@angular/core';
 
 // Component Modules
-import { LandingMenuModule } from './landing-menu/landing-menu.module';
+import { MenuModule } from './menu/menu.module';
+import { CoreModule } from './core/core.module';
 
 // Components
 import { AppComponent } from './app.component';
@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
 @NgModule({
   imports: [ // modules
     BrowserModule,
-    LandingMenuModule,
+    MenuModule,
     CoreModule
   ],
   declarations: [ // Components, directives and pipes are placed in module's declarations
