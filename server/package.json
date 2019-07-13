@@ -2,10 +2,10 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "express.js",
   "scripts": {
-    "test": "node server.js",
-    "start": "node server.js"
+    "test": "node express.js",
+    "start": "node express.js"
   },
   "author": "",
   "license": "ISC",

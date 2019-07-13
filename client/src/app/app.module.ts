@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
 // Component Modules
@@ -11,6 +12,7 @@ import { AppComponent } from './app.component';
 @NgModule({
   imports: [ // modules
     BrowserModule,
+    HttpClientModule,
     MenuModule,
     CoreModule
   ],
