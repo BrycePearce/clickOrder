@@ -3,11 +3,10 @@
         {
             "sandwiches": [
                 {
-                    "breadedChickenFlatbread": {
-                        "img": "./sandwich.jpg",
-                        "description": "A good sandwich",
-                        "price": "$8.99"
-                    }
+                    "name": "breadedChickenFlatbread",
+                    "description": "A good sandwich",
+                    "img": "./sandwich.jpg",
+                    "price": "$8.99"
                 }
             ]
         }

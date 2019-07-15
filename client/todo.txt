@@ -1,0 +1,36 @@
+we shoud handle sales
+
+ipad app alerts to new orders
+
+toast has resteraunt grade android tablet things on swivels
+
+https://pos.toasttab.com/products/online-ordering
+snapfinger
+
+
+react native for mobile app
+
+
+todo: No pictures version?
+
+optional: customize ingredients. If not, have a special instructions box?
+
+
+For seperate apps: just fork parent repo, have forks for each place
+
+
+user auth:
+mongo
+
+
+
+----
+
+Admins can add/edit items. Potentially have a "its your first time" page where they can upload their menu images/descripions/prices/etc in one go.
+Needs to be ported to JSON and consumed by api
+api needs to cache updates until it's changed
+
+----
+
+todo: When uploaded images happen, need to process them / generate thumbnails to 50kb or so.
+todo: need to use hosting for images, like google cloud or amazon s3 ( bill reference: https://github.com/m4tta/BuyMySticks/blob/master/functions/index.js#L15 ) - it is a cloud function that runs whenever it detects a new file upload to one of my google storage buckets

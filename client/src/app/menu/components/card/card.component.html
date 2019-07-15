@@ -1,3 +1,5 @@
-<p>
-  card works!
-</p>
+<div *ngFor="let product of display | keyvalue">
+  <p>{{product.key}}</p>
+  <p>{{product.value}}</p>
+</div>
+<img src="http://localhost:3000/sandwich.jpg">
