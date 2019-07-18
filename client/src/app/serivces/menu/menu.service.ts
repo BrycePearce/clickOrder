@@ -15,6 +15,6 @@ export class MenuService {
   constructor(private http: HttpClient) { }
 
   public getMenu(): Observable<Menu> {
-    return this.http.get<Menu>('http://localhost:3000/123/menu');
+    return this.http.get<Menu>('http://localhost:3000/api/123/menu');
   }
 }

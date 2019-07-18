@@ -1,14 +1,26 @@
 'use strict'
 
-const express = require('express')
-const path = require('path')
-const port = process.env.PORT || 3000;
+const express = require('express');
+const path = require('path');
 const cors = require('cors');
+
+// Routes
+const routeBasic = require('./routes/routes.js')
+
+const port = process.env.PORT || 3000;
 
 const app = express()
 
-// temp
-const mockData = require('./mock/menuItem.json');
+// Mongo
+const uri = "mongodb+srv://Node:HoDEHLTz7ejELDFJ@cluster0-wyeof.gcp.mongodb.net/test?retryWrites=true&w=majority";
+const mongoose = require('mongoose');
+
+
+mongoose.connect(uri, {
+    useNewUrlParser: true
+});
+
+require('./models/seed.js');
 
 // const middleware = require('./middleware')
 // const router = require('./router')
@@ -16,16 +28,14 @@ const mockData = require('./mock/menuItem.json');
 // Middleware
 app.use(cors()); // todo: remove for prod (enable/disable via some env variables)
 
-app.use(express.static(path.join(__dirname, 'public')));
+// Set Routes
+app.use('/api', routeBasic);
+
 // host static stuff, such as images. Eventually this needs to be moved to cloud for size/speed.
+app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use(router.middleware())
 
-app.get('/', (req, res) => res.send('Hello World!'))
-
-app.get('/:restaurantId/menu', function (req, res) {
-    return res.status(200).json(mockData);
-});
 
 // start and listen to port
 app.listen(port, () => {
