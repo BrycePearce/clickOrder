@@ -15,17 +15,15 @@ import { Restaurant } from '../models/RestaurantModel';
 export class RestaurantComponent implements OnInit {
 
   constructor(private restaurantService: RestaurantService) { }
-  public categories: Array<string> = [];
   public restaurant: Restaurant = new Restaurant();
 
   ngOnInit() {
     this.setDisplayData();
   }
 
-  private setDisplayData() {
-    return this.restaurantService.getRestaurant().pipe(take(1)).subscribe(
+  setDisplayData() {
+    this.restaurantService.getRestaurant().pipe(take(1)).subscribe(
       (restaurant) => {
-        console.log('restaurant', restaurant);
         this.restaurant = restaurant;
       },
       (error) => { // todo:
