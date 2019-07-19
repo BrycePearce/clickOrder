@@ -6,15 +6,15 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 // Models
-import { Menu } from 'src/app/models/landing-menu-models/Menu.model';
+import { Restaurant } from 'src/app/models/RestaurantModel';
 
 @Injectable({
   providedIn: 'root' // this adds it to app module without needing to register it as a service
 })
-export class MenuService {
+export class RestaurantService {
   constructor(private http: HttpClient) { }
 
-  public getMenu(): Observable<Menu> {
-    return this.http.get<Menu>('http://localhost:3000/api/123/menu');
+  public getRestaurant(): Observable<Restaurant> {
+    return this.http.get<Restaurant>('http://localhost:3000/api/123/menu');
   }
 }

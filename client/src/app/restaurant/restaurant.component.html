@@ -1,4 +1,4 @@
-<div *ngFor="let category of menu.categories">
+<div *ngFor="let category of menu">
   <div *ngFor="let selection of category | keyvalue; let i = index">
     {{selection.key}}
     <app-card [display]="selection.value[i]"></app-card>

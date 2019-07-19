@@ -3,7 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
 // Component Modules
-import { MenuModule } from './menu/menu.module';
+import { RestaurantModule } from './restaurant/restaurant.module';
 import { CoreModule } from './core/core.module';
 
 // Components
@@ -13,7 +13,7 @@ import { AppComponent } from './app.component';
   imports: [ // modules
     BrowserModule,
     HttpClientModule,
-    MenuModule,
+    RestaurantModule,
     CoreModule
   ],
   declarations: [ // Components, directives and pipes are placed in module's declarations

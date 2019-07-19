@@ -1,6 +1,8 @@
-import { MenuComponent } from './menu.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+
+// Components
+import { RestaurantComponent } from './restaurant.component';
 import { CardComponent } from './components/card/card.component';
 
 @NgModule({
@@ -8,11 +10,11 @@ import { CardComponent } from './components/card/card.component';
         CommonModule
     ],
     declarations: [
-        MenuComponent,
+        RestaurantComponent,
         CardComponent
     ],
     exports: [
-        MenuComponent
+        RestaurantComponent
     ]
 })
-export class MenuModule { }
+export class RestaurantModule { }

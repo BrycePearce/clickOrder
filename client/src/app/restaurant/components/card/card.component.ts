@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { Details } from './../../../models/landing-menu-models/Menu.model';
+import { Component, OnInit, Input } from '@angular/core';
+import { Restaurant } from 'src/app/models/RestaurantModel';
 
 @Component({
   selector: 'app-card',
@@ -7,7 +7,7 @@ import { Details } from './../../../models/landing-menu-models/Menu.model';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
-  @Input() display: Details;
+  @Input() display: Restaurant;
 
   constructor() { }
 

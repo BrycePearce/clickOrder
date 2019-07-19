@@ -5,15 +5,21 @@ Restaurants.deleteMany({}, () => {
 })
 
 const rest = new Restaurants({
-    name: "taco bell",
-    categories: [{
-        sandwiches: [{
-            name: "breadedChickenFlatbread",
-            description: "A good sandwich",
-            img: "./sandwich.jpg",
-            price: "$8.99"
-        }]
-    }]
+    name: "Taco Bell",
+    address: "123 North Ave, Springfield, VA",
+    menu: [{
+            name: "bean burrito",
+            category: "burritos",
+            price: "8.99$",
+            description: "A burrito with beans"
+        },
+        {
+            name: "cinnamonSticks",
+            category: "desserts",
+            price: "$2.00",
+            description: "You Cinna you want some?"
+        }
+    ]
 });
 
 rest.save(() => {
