@@ -17,7 +17,7 @@ import { AppComponent } from './app.component';
     CoreModule
   ],
   declarations: [ // Components, directives and pipes are placed in module's declarations
-    AppComponent,
+    AppComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
