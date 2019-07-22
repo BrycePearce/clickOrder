@@ -5,7 +5,7 @@ export class Restaurant {
     groupedMenu: GroupedMenu;
 }
 
-class GroupedMenu {
+export class GroupedMenu {
     [key: string]: MenuItem;
 }
 

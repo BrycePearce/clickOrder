@@ -5,11 +5,16 @@ const _ = require('lodash');
 const Restaurants = new Schema({
     name: String,
     address: String,
+    categories: [{
+        name: String,
+        order: Number
+    }],
     menu: [{
         name: String,
         category: String,
         price: String,
         description: String,
+        order: Number,
         image: {
             type: String,
             default: null
