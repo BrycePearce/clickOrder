@@ -3,6 +3,7 @@
     <h4>{{startCase(category.key)}}</h4>
     <div *ngFor="let menuItem of category.value; let i = index">
       <app-card [menuItem]="menuItem"></app-card>
+      <hr class="m-0" height="1px">
     </div>
   </li>
 </ul>

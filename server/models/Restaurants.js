@@ -9,7 +9,11 @@ const Restaurants = new Schema({
         name: String,
         category: String,
         price: String,
-        description: String
+        description: String,
+        image: {
+            type: String,
+            default: null
+        }
     }]
 });
 

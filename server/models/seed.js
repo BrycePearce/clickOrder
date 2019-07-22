@@ -11,13 +11,15 @@ const rest = new Restaurants({
             name: "bean burrito",
             category: "burritos",
             price: "8.99$",
-            description: "A burrito with beans"
+            description: "A burrito with beans, wrapped in a tortilla",
+            image: "todo"
         },
         {
             name: "5 layer burrito",
             category: "burritos",
             price: "8.99$",
-            description: "A burrito with LAYERS"
+            description: "A burrito with layers on layers, on LAYERS. Includes: layers"
+
         },
         {
             name: "cinnamonSticks",
