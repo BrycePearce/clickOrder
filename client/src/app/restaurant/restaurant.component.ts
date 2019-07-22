@@ -7,6 +7,9 @@ import { RestaurantService } from '../serivces/restaurant/restaurant.service';
 // Models
 import { Restaurant } from '../models/RestaurantModel';
 
+// Third Party
+import startCase from 'lodash-es/startCase';
+
 @Component({
   selector: 'app-restaurant',
   templateUrl: './restaurant.component.html',
@@ -16,6 +19,7 @@ export class RestaurantComponent implements OnInit {
 
   constructor(private restaurantService: RestaurantService) { }
   public restaurant: Restaurant = new Restaurant();
+  public startCase = startCase;
 
   ngOnInit() {
     this.setDisplayData();

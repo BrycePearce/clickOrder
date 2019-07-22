@@ -1,7 +1,8 @@
-<!-- <div *ngFor="let category of restaurant.groupedMenu | keyvalue">
-  Category - {{category.key}}
-  <div *ngFor="let menuItem of category.value; let i = index">
-    <app-card [menuItem]="menuItem"></app-card>
-  </div>
-</div> -->
-<app-admin-view></app-admin-view>
+<ul class="d-flex flex-column p-3">
+  <li *ngFor="let category of restaurant.groupedMenu | keyvalue">
+    <h4>{{startCase(category.key)}}</h4>
+    <div *ngFor="let menuItem of category.value; let i = index">
+      <app-card [menuItem]="menuItem"></app-card>
+    </div>
+  </li>
+</ul>

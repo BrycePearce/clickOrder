@@ -59,7 +59,7 @@ const multer = Multer({
     },
     fileFilter(req, file, cb) {
         if (!file.originalname.match(/\.(jpg|tiff|bmp|jpeg|png)$/i)) {
-            cb(new Error('Please upload an image with format jpg, jpeg, tiff, bmp, or png'))
+            cb(new Error('Please upload an image with the format jpg, jpeg, tiff, bmp, or png'))
         }
         // 200 ok
         cb(undefined, true)

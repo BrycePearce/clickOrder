@@ -10,19 +10,28 @@ import { FileUploader } from 'ng2-file-upload';
   styleUrls: ['./file-upload.component.scss']
 })
 export class FileUploadComponent implements OnInit {
-  public uploader: FileUploader = new FileUploader({ url: 'http://localhost:3000/api/123/menu/uploadImage', itemAlias: 'thisIsFileName' });
+  public uploader: FileUploader = new FileUploader({ url: 'http://localhost:3000/api/123/menu/uploadImage', itemAlias: 'image' });
 
   constructor() { }
 
   ngOnInit() {
+    // prevents CORS issue
     this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
-    this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
-      console.log('ImageUpload:uploaded:', item, status, response);
-      alert('File uploaded successfully');
-    };
+
+    this.uploader.onErrorItem = (item, response, status, headers) => this.onErrorItem(item, response, status, headers);
+    this.uploader.onSuccessItem = (item, response, status, headers) => this.onSuccessItem(item, response, status, headers);
   }
 
-  fire(asd) {
-    console.log('!!', asd);
+  onFileSelected() {
+    console.log('todo');
+  }
+
+  onSuccessItem(item: any, response: any, status: number, headers: any) {
+    console.log('ImageUpload:uploaded:', item, status, response);
+    alert('File uploaded successfully');
+  }
+
+  onErrorItem(item: any, response: any, status: number, headers: any) {
+    alert('something went wrong');
   }
 }
