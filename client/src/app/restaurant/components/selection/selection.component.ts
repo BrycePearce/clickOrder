@@ -18,6 +18,5 @@ export class SelectionComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('we got', this.menuItem);
   }
 }

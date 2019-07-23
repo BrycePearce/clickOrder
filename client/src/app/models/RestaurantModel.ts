@@ -3,6 +3,7 @@ export class Restaurant {
     address: string;
     menu: Array<MenuItem>;
     groupedMenu: GroupedMenu;
+    categories: Array<Category>;
 }
 
 export class GroupedMenu {
@@ -12,6 +13,13 @@ export class GroupedMenu {
 export class MenuItem {
     name: string;
     description: string;
-    img: string;
+    category: string;
+    image: string;
     price: string;
+    order: number;
+}
+
+export class Category {
+    name: string;
+    order: string;
 }

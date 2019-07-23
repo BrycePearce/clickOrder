@@ -1,8 +1,8 @@
 <ul class="d-flex flex-column p-3">
-  <li *ngFor="let category of restaurant.groupedMenu | keyvalue">
-    <h4>{{startCase(category.key)}}</h4>
-    <div *ngFor="let menuItem of category.value; let i = index">
-      <app-selection [menuItem]="menuItem" (click)="load()"></app-selection>
+  <li *ngFor="let category of sortByKey(restaurant.categories, 'order')">
+    <h4>{{startCase(category.name)}}</h4>
+    <div *ngFor="let menuItem of sortByKey(restaurant.groupedMenu[category.name], 'order'); let i = index">
+      <app-selection [menuItem]="menuItem" (click)="loadCustomization(menuItem)"></app-selection>
       <hr class="m-0" height="1px">
     </div>
   </li>

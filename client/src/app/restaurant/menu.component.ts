@@ -5,11 +5,11 @@ import { take } from 'rxjs/operators';
 import { RestaurantService } from '../serivces/restaurant/restaurant.service';
 
 // Models
-import { Restaurant } from '../models/RestaurantModel';
+import { Restaurant, MenuItem, Category } from '../models/RestaurantModel';
 
 // Third Party
 import startCase from 'lodash-es/startCase';
-// import orderBy from 'lodash-es/orderBy';
+import sortBy from 'lodash-es/sortBy';
 
 @Component({
   selector: 'app-menu',
@@ -21,6 +21,7 @@ export class MenuComponent implements OnInit {
   constructor(private restaurantService: RestaurantService) { }
   public restaurant: Restaurant = new Restaurant();
   public startCase = startCase;
+  public sortBy = sortBy;
 
   ngOnInit() {
     this.setDisplayData();
@@ -35,6 +36,12 @@ export class MenuComponent implements OnInit {
       });
   }
 
-  clicky() {
+  sortByKey(list: Array<any>, key: string): Array<any> {
+    return sortBy(list, o => o[key]);
+  }
+
+  loadCustomization(item: MenuItem) {
+    console.log(item);
+    return;
   }
 }
