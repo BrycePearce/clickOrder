@@ -1,18 +1,18 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 // Models
-import { MenuItem } from './../../../models/RestaurantModel';
+import { MenuItem } from '../../../models/RestaurantModel';
 
 // Third Party
 import startCase from 'lodash-es/startCase';
 
 
 @Component({
-  selector: 'app-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss']
+  selector: 'app-selection',
+  templateUrl: './selection.component.html',
+  styleUrls: ['./selection.component.scss']
 })
-export class CardComponent implements OnInit {
+export class SelectionComponent implements OnInit {
   @Input() menuItem: MenuItem;
   public startCase = startCase;
   constructor() { }

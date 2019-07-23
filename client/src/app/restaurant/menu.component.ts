@@ -9,13 +9,14 @@ import { Restaurant } from '../models/RestaurantModel';
 
 // Third Party
 import startCase from 'lodash-es/startCase';
+// import orderBy from 'lodash-es/orderBy';
 
 @Component({
-  selector: 'app-restaurant',
-  templateUrl: './restaurant.component.html',
-  styleUrls: ['./restaurant.component.scss']
+  selector: 'app-menu',
+  templateUrl: './menu.component.html',
+  styleUrls: ['./menu.component.scss']
 })
-export class RestaurantComponent implements OnInit {
+export class MenuComponent implements OnInit {
 
   constructor(private restaurantService: RestaurantService) { }
   public restaurant: Restaurant = new Restaurant();
@@ -32,5 +33,8 @@ export class RestaurantComponent implements OnInit {
       },
       (error) => { // todo:
       });
+  }
+
+  clicky() {
   }
 }
