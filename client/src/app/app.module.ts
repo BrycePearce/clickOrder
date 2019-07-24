@@ -2,6 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
+// ngrx
+import { StoreModule } from '@ngrx/store';
+import { checkoutReducer } from './restaurant/store/menu.reducer';
+
 // Component Modules
 import { MenuModule } from './restaurant/menu.module';
 import { CoreModule } from './core/core.module';
@@ -13,6 +17,7 @@ import { AppComponent } from './app.component';
   imports: [ // modules
     BrowserModule,
     HttpClientModule,
+    StoreModule.forRoot({ checkout: checkoutReducer }),
     MenuModule,
     CoreModule
   ],
