@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 // Components
-import { AdminViewComponent } from './../admin-view/admin-view.component';
+import { AdminViewComponent } from './admin-view.component';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
 
 // Third Party

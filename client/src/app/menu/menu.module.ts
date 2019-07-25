@@ -2,22 +2,20 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 // Modules
+import { SelectionModule } from './components/selection/selection.module';
 import { AdminViewModule } from './admin-view/admin-view.module';
 
 // Components
 import { MenuComponent } from './menu.component';
-import { SelectionComponent } from './components/selection/selection.component';
-import { CustomizationComponent } from './components/customization/customization.component';
 
 @NgModule({
     imports: [
         CommonModule,
-        AdminViewModule
+        AdminViewModule,
+        SelectionModule
     ],
     declarations: [
-        MenuComponent,
-        SelectionComponent,
-        CustomizationComponent,
+        MenuComponent
     ],
     exports: [
         MenuComponent

@@ -4,10 +4,10 @@ import { NgModule } from '@angular/core';
 
 // ngrx
 import { StoreModule } from '@ngrx/store';
-import { checkoutReducer } from './restaurant/store/menu.reducer';
+import { checkoutReducer } from './menu/store/menu.reducer';
 
 // Component Modules
-import { MenuModule } from './restaurant/menu.module';
+import { MenuModule } from './menu/menu.module';
 import { CoreModule } from './core/core.module';
 
 // Components
