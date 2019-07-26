@@ -1,25 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
 import { NgModule } from '@angular/core';
 
 // ngrx
+import { checkoutReducer } from './components/menu/store/menu.reducer';
 import { StoreModule } from '@ngrx/store';
-import { checkoutReducer } from './menu/store/menu.reducer';
 
 // Component Modules
-import { MenuModule } from './menu/menu.module';
+import { MenuModule } from './components/menu/menu.module';
 import { CoreModule } from './core/core.module';
 
 // Components
 import { AppComponent } from './app.component';
+import { SelectionModule } from './components/selection/selection.module';
 
 @NgModule({
   imports: [ // modules
     BrowserModule,
     HttpClientModule,
+    AppRoutingModule,
     StoreModule.forRoot({ checkout: checkoutReducer }),
+    CoreModule,
     MenuModule,
-    CoreModule
+    SelectionModule,
   ],
   declarations: [ // Components, directives and pipes are placed in module's declarations
     AppComponent

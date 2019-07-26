@@ -1,11 +1,8 @@
 // Actions
 import * as MenuActions from './menu.actions';
 
-// Models
-import { MenuItem } from 'src/app/models/RestaurantModel';
-
 const initialState = {
-    selections: [new MenuItem()] // todo: add customization options to MenuItem type?
+    selections: []
 };
 
 export function checkoutReducer(state = initialState, action: MenuActions.AddSelection) {

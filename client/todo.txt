@@ -34,3 +34,7 @@ api needs to cache updates until it's changed
 
 todo: When uploaded images happen, need to process them / generate thumbnails to 50kb or so.
 todo: need to use hosting for images, like google cloud or amazon s3 ( bill reference: https://github.com/m4tta/BuyMySticks/blob/master/functions/index.js#L15 ) - it is a cloud function that runs whenever it detects a new file upload to one of my google storage buckets
+
+----
+
+todo: consider having a base page that lists all available restaurants

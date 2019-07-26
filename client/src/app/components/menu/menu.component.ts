@@ -4,10 +4,10 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 // Services
-import { RestaurantService } from '../serivces/restaurant/restaurant.service';
+import { RestaurantService } from '../../serivces/restaurant/restaurant.service';
 
 // Models
-import { Restaurant, MenuItem } from '../models/RestaurantModel';
+import { Restaurant, MenuItem } from '../../models/RestaurantModel';
 
 // Third Party
 import startCase from 'lodash-es/startCase';
@@ -19,7 +19,8 @@ import sortBy from 'lodash-es/sortBy';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-  public restaurant: Restaurant = new Restaurant();
+  public restaurant = new Restaurant();
+  public currentSelection = new MenuItem();
   public startCase = startCase;
   public sortBy = sortBy;
   private checkout: Observable<{ selections: MenuItem[] }>;
@@ -40,13 +41,19 @@ export class MenuComponent implements OnInit {
       });
   }
 
+  // todo: should load selection with a route maybe?
+  loadSelection(item: MenuItem) {
+    this.currentSelection = item;
+    return;
+  }
+
   sortByKey(list: Array<any>, key: string): Array<any> {
     return sortBy(list, o => o[key]);
   }
 
-  loadCustomization(item: MenuItem) {
-    console.log('todo: dispatch action', this.checkout);
-    console.log(item);
-    return;
+  clicky() {
+    let state;
+    this.store.select('checkout').subscribe(s => state = s);
+    console.log(state);
   }
 }
