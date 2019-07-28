@@ -4,8 +4,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { NgModule } from '@angular/core';
 
 // ngrx
-import { checkoutReducer } from './components/menu/store/menu.reducer';
 import { StoreModule } from '@ngrx/store';
+import * as fromApp from './store/app.reducer'; // global state
 
 // Component Modules
 import { MenuModule } from './components/menu/menu.module';
@@ -20,7 +20,7 @@ import { SelectionModule } from './components/selection/selection.module';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    StoreModule.forRoot({ checkout: checkoutReducer }),
+    StoreModule.forRoot(fromApp.appReducer),
     CoreModule,
     MenuModule,
     SelectionModule,

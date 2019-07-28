@@ -3,6 +3,10 @@ import { take } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
+// Ngrx
+import * as fromCheckout from './store/menu.reducer';
+import * as fromApp from '../../store/app.reducer';
+
 // Services
 import { RestaurantService } from '../../serivces/restaurant/restaurant.service';
 
@@ -25,7 +29,7 @@ export class MenuComponent implements OnInit {
   public sortBy = sortBy;
   private checkout: Observable<{ selections: MenuItem[] }>;
 
-  constructor(private restaurantService: RestaurantService, private store: Store<{ checkout: { selections: MenuItem[] } }>) { }
+  constructor(private restaurantService: RestaurantService, private store: Store<fromApp.AppState>) { }
 
   ngOnInit() {
     this.checkout = this.store.select('checkout');
