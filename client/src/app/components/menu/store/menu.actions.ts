@@ -1,7 +1,7 @@
 import { Action } from '@ngrx/store';
 
 // Models
-import { MenuItem } from '../../../models/RestaurantModel';
+import { MenuItem } from '../../../models/RestaurantModel'; // todo: probably need to create non-client model with more options like quantity/etc
 
 // Action definitions
 export const ADD_SELECTION = 'ADD_SELECTION';

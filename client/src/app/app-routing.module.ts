@@ -6,10 +6,11 @@ import { SelectionComponent } from './components/selection/selection.component';
 import { MenuComponent } from './components/menu/menu.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'restaurant/123', pathMatch: 'full' },
     { path: 'restaurant/:restaurantId', component: MenuComponent },
-    { path: 'restaurant/:restaurantId/customization', component: SelectionComponent }
-
+    { path: 'restaurant/:restaurantId/:selectionId/customization', component: SelectionComponent },
+    {
+        path: '**', redirectTo: 'restaurant/123'
+    }
 ];
 
 @NgModule({

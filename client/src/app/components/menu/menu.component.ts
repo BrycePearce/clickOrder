@@ -1,3 +1,4 @@
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { take } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
@@ -29,7 +30,9 @@ export class MenuComponent implements OnInit {
   public sortBy = sortBy;
   private checkout: Observable<{ selections: MenuItem[] }>;
 
-  constructor(private restaurantService: RestaurantService, private store: Store<fromApp.AppState>) { }
+  constructor(private restaurantService: RestaurantService, private store: Store<fromApp.AppState>,
+    // tslint:disable-next-line: align
+    private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.checkout = this.store.select('checkout');
@@ -59,5 +62,12 @@ export class MenuComponent implements OnInit {
     let state;
     this.store.select('checkout').subscribe(s => state = s);
     console.log(state);
+  }
+
+  loadCustomization(selection: MenuItem) {
+    this.router.navigate([`${'456'}/customization`], {
+      relativeTo: this.route,
+      state: { selection }
+    });
   }
 }

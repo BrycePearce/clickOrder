@@ -1,8 +1,16 @@
-<!-- todo: consider moving selection/customization out of menu component, since selection will be its own route -->
-todo: render
-..image..
-..name..
-..description..
+<!-- todo: this may need to be a modal -->
+<img *ngIf="selection?.image" class="img w-100" src=" ../../../assets/burg.png">
 
-<button (click)='addSelection()'>mock state data</button>
-<app-customization></app-customization>
+<div class="selection pt-3 pl-3 pr-3 pb-4">
+  <h4 class="name">{{selection.name}}</h4>
+  <div class="description mt-3">{{selection.description}}</div>
+
+  <div class="quantity-selection-row d-flex mt-3 mb-3">
+    <h6 class="mb-3 mt-3 mr-2">Quantity</h6>
+    <button (click)="updateQuantity('decrement')" class="mr-2">-</button>
+    <div>1</div>
+    <button (click)="updateQuantity('increment')" class="ml-2">+</button>
+  </div>
+  <!-- <button (click)='addSelection()'>mock state data</button> -->
+  <app-customization></app-customization>
+</div>
