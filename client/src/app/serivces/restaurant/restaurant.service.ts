@@ -3,12 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 // NgRx
-import { Store } from '@ngrx/store';
+import * as RestaurantActions from '../../components/store/restaurant.action';
 import * as fromApp from '../../store/app.reducer';
+import { Store } from '@ngrx/store';
 
 // RxJS
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
+
 // Models
 import { Restaurant } from 'src/app/models/RestaurantModel';
 
@@ -23,7 +25,7 @@ export class RestaurantService {
       return restaurant;
     }),
       tap((restaurant) => {
-        console.log('hi');
+        this.store.dispatch(new RestaurantActions.SetRestaurant(restaurant));
       })
     );
   }

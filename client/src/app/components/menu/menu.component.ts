@@ -1,13 +1,11 @@
-import { MenuActions } from './store/menu.actions';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { take } from 'rxjs/operators';
+import { take, map } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 // Ngrx
 import * as RestaurantActions from '../store/restaurant.action';
-import * as fromCheckout from './store/menu.reducer';
 import * as fromApp from '../../store/app.reducer';
 
 // Services
@@ -32,41 +30,24 @@ export class MenuComponent implements OnInit {
   public sortBy = sortBy;
   private checkout: Observable<{ selections: MenuItem[] }>;
 
-  constructor(private restaurantService: RestaurantService, private store: Store<fromApp.AppState>,
+  constructor(private store: Store<fromApp.AppState>,
     // tslint:disable-next-line: align
     private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.checkout = this.store.select('checkout');
     this.setDisplayData();
   }
 
   setDisplayData() {
-    this.restaurantService.getRestaurant().pipe(take(1)).subscribe(
-      (restaurant) => {
+    this.store.select('restaurant')
+      .pipe(take(1), map(restaurantState => restaurantState.restaurant)).subscribe((restaurant: Restaurant) => {
+        console.log('weee', restaurant);
         this.restaurant = restaurant;
-        console.log(restaurant)
-        this.store.dispatch(new RestaurantActions.SetRestaurant(restaurant)); // todo: this may need to be in service? Not here, idk.
-
-      },
-      (error) => { // todo:
       });
-  }
-
-  // todo: should load selection with a route maybe?
-  loadSelection(item: MenuItem) {
-    this.currentSelection = item;
-    return;
   }
 
   sortByKey(list: Array<any>, key: string): Array<any> {
     return sortBy(list, o => o[key]);
-  }
-
-  clicky() {
-    let state;
-    this.store.select('checkout').subscribe(s => state = s);
-    console.log(state);
   }
 
   loadCustomization(selection: MenuItem) {
