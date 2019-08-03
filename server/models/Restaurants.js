@@ -14,7 +14,25 @@ const Restaurants = new Schema({
         category: String,
         price: String,
         description: String,
-        order: Number,
+        order: Number, // display order
+        soldOut: Boolean,
+        customization: [{ // sides / remove ingredients
+            name: String,
+            price: String,
+            maxSelections: {
+                type: String,
+                default: 50
+            },
+            minSelections: {
+                type: String,
+                default: 0
+            },
+            soldOut: Boolean,
+            additionalCustomization: [{
+                name: String,
+                price: String
+            }]
+        }],
         image: {
             type: String,
             default: null

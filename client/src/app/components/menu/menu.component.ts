@@ -1,3 +1,4 @@
+import { MenuActions } from './store/menu.actions';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { take } from 'rxjs/operators';
@@ -5,6 +6,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 // Ngrx
+import * as RestaurantActions from '../store/restaurant.action';
 import * as fromCheckout from './store/menu.reducer';
 import * as fromApp from '../../store/app.reducer';
 
@@ -43,6 +45,9 @@ export class MenuComponent implements OnInit {
     this.restaurantService.getRestaurant().pipe(take(1)).subscribe(
       (restaurant) => {
         this.restaurant = restaurant;
+        console.log(restaurant)
+        this.store.dispatch(new RestaurantActions.SetRestaurant(restaurant)); // todo: this may need to be in service? Not here, idk.
+
       },
       (error) => { // todo:
       });
@@ -65,7 +70,7 @@ export class MenuComponent implements OnInit {
   }
 
   loadCustomization(selection: MenuItem) {
-    this.router.navigate([`${'456'}/customization`], {
+    this.router.navigate([`${selection._id}/customization`], {
       relativeTo: this.route,
       state: { selection }
     });

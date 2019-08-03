@@ -1,3 +1,4 @@
+// tslint:disable: variable-name
 export class Restaurant {
     name: string;
     address: string;
@@ -17,6 +18,7 @@ export class MenuItem {
     image: string;
     price: string;
     order: number;
+    _id: string;
 }
 
 export class Category {
