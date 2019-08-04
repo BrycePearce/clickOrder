@@ -16,22 +16,61 @@ const Restaurants = new Schema({
         description: String,
         order: Number, // display order
         soldOut: Boolean,
-        customization: [{ // sides / remove ingredients
+        comboItem: {
+            type: Boolean,
+            default: false
+        },
+        customization: { // todo: should this be a computed property?
+            substitutableIngredients: [{
+                name: String,
+                order: Number,
+                additionalCost: {
+                    type: String,
+                    default: null
+                },
+                subtractableCost: {
+                    type: String,
+                    default: null
+                }
+            }],
+            additionalIngredients: [{
+                name: String,
+                order: Number,
+                additionalCost: {
+                    type: String,
+                    default: null
+                }
+            }],
+            removableIngredients: [{
+                name: String,
+                order: Number,
+                subtractableCost: {
+                    type: String,
+                    default: null
+                }
+            }]
+        },
+        comboSelections: [{ // combo options if combo selected. Otherwise will have  to pick sides from a 'sides' selection
+            categoryName: String,
+            categoryOrder: Number,
             name: String,
-            price: String,
+            additionalCost: {
+                type: String,
+                default: null
+            },
             maxSelections: {
                 type: String,
-                default: 50
+                default: 15
             },
             minSelections: {
                 type: String,
                 default: 0
             },
-            soldOut: Boolean,
-            additionalCustomization: [{
-                name: String,
-                price: String
-            }]
+            soldOut: {
+                type: Boolean,
+                default: false
+            },
+            order: Number
         }],
         image: {
             type: String,
