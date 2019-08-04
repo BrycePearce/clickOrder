@@ -5,7 +5,7 @@
     <h4>{{startCase(category.name)}}</h4>
     <div *ngFor="let menuItem of sortByKey(restaurant.groupedMenu[category.name], 'order'); let i = index">
       <!-- Options -->
-      <div (click)="loadCustomization(menuItem)" class=" d-flex justify-content-between pt-3 pb-3">
+      <div (click)="loadCustomization(menuItem._id)" class=" d-flex justify-content-between pt-3 pb-3">
         <div class="">
           <h6 class="mb-0">{{startCase(menuItem.name)}}</h6>
           <div class="text-secondary">{{menuItem.description}}</div>

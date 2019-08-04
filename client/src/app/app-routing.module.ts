@@ -12,15 +12,21 @@ const routes: Routes = [
         resolve: [RestaurantResolverService],
         children: [
             {
-                path: 'restaurant/:restaurantId',
-                component: MenuComponent
+                path: ':name',
+                children: [
+                    {
+                        path: '',
+                        component: MenuComponent,
+                        pathMatch: 'full'
+                    },
+                    {
+                        path: ':selectionId',
+                        component: SelectionComponent
+                    }
+                ],
             },
             {
-                path: 'restaurant/:restaurantId/:selectionId/customization',
-                component: SelectionComponent
-            },
-            {
-                path: '**', redirectTo: 'restaurant/123'
+                path: '**', redirectTo: 'Burger-Kong'
             }
         ]
     }

@@ -43,10 +43,9 @@ export class MenuComponent implements OnInit {
     return sortBy(list, o => o[key]);
   }
 
-  loadCustomization(selection: MenuItem) {
-    this.router.navigate([`${selection._id}/customization`], {
-      relativeTo: this.route,
-      state: { selection }
+  loadCustomization(id: string) {
+    this.router.navigate([id], {
+      relativeTo: this.route
     });
   }
 }
