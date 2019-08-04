@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+// Models
+import { CustomizationOptions } from './../../../../models/RestaurantModel';
 
 @Component({
   selector: 'app-customization',
@@ -6,10 +9,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./customization.component.scss']
 })
 export class CustomizationComponent implements OnInit {
-  public customizationOptions = [1];
+  @Input() options: CustomizationOptions[];
   constructor() { }
 
   ngOnInit() {
+    console.log(this.options);
   }
 
 }

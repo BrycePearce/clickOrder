@@ -18,10 +18,21 @@ export class MenuItem {
     image: string;
     price: string;
     order: number;
+    customization: Array<CustomizationOptions>;
     _id: string;
 }
 
 export class Category {
     name: string;
     order: string;
+}
+
+export class CustomizationOptions {
+    name: string;
+    price: string;
+    soldOut: boolean;
+    minSelections: string;
+    maxSelections: string;
+    addtionalCustomization: Array<CustomizationOptions>;
+    _id: string;
 }
