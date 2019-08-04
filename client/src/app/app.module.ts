@@ -4,7 +4,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { NgModule } from '@angular/core';
 
 // ngrx
+import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
+
+// State management
+import { RestaurantEffects } from './components/store/restaurant.effects';
 import * as fromApp from './store/app.reducer'; // global state
 
 // Component Modules
@@ -21,6 +25,7 @@ import { SelectionModule } from './components/selection/selection.module';
     HttpClientModule,
     AppRoutingModule,
     StoreModule.forRoot(fromApp.appReducer),
+    EffectsModule.forRoot([RestaurantEffects]),
     CoreModule,
     MenuModule,
     SelectionModule,

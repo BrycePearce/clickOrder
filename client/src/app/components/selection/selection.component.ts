@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 // NgRx
@@ -14,7 +14,7 @@ import { MenuItem } from '../../models/RestaurantModel';
   templateUrl: './selection.component.html',
   styleUrls: ['./selection.component.scss']
 })
-export class SelectionComponent implements OnInit {
+export class SelectionComponent {
   public loadCustomization = false;
   public selection: MenuItem;
 
@@ -23,17 +23,7 @@ export class SelectionComponent implements OnInit {
     this.selection = routerExtras.hasOwnProperty('state') ? routerExtras.state.selection : null;
   }
 
-  // todo: should pass customization state in MenuItem object down to customization component, then update state here
-  ngOnInit() {
-    console.log('asd', this.selection);
-  }
-
   addSelection() {
     this.store.dispatch(new MenuActions.AddSelection(this.selection));
-  }
-
-  updateQuantity(type: string) {
-    console.log(type);
-    return;
   }
 }

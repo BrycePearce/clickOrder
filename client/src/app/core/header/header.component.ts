@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 // NgRx
 import * as fromApp from '../../store/app.reducer';
 import { Store } from '@ngrx/store';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
@@ -12,17 +13,18 @@ import { Store } from '@ngrx/store';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  public restaurant: Observable<{ restaurant: Restaurant }>;
-  public thingy: Restaurant = new Restaurant();
+  public restaurant: Restaurant;
 
   constructor(private store: Store<fromApp.AppState>) { }
 
   ngOnInit() {
-    this.getRestaurant();
+    this.setDisplayData();
   }
 
-  getRestaurant() {
-    return this.store.select('restaurant').subscribe((asd) => { this.thingy = asd.restaurant; });
+  setDisplayData() {
+    this.store.select('restaurant')
+      .pipe(map(restaurantState => restaurantState.restaurant)).subscribe((restaurant: Restaurant) => {
+        this.restaurant = restaurant;
+      });
   }
-
 }

@@ -1,6 +1,6 @@
 
 // Actions
-import * as RestaurantActions from './restaurant.action';
+import * as RestaurantActions from './restaurant.actions';
 
 // Models
 import { Restaurant } from 'src/app/models/RestaurantModel';

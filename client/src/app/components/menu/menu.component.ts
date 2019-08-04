@@ -1,15 +1,10 @@
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { take, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
 
 // Ngrx
-import * as RestaurantActions from '../store/restaurant.action';
 import * as fromApp from '../../store/app.reducer';
-
-// Services
-import { RestaurantService } from '../../serivces/restaurant/restaurant.service';
 
 // Models
 import { Restaurant, MenuItem } from '../../models/RestaurantModel';
@@ -24,11 +19,10 @@ import sortBy from 'lodash-es/sortBy';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-  public restaurant = new Restaurant();
+  public restaurant: Restaurant;
   public currentSelection = new MenuItem();
   public startCase = startCase;
   public sortBy = sortBy;
-  private checkout: Observable<{ selections: MenuItem[] }>;
 
   constructor(private store: Store<fromApp.AppState>,
     // tslint:disable-next-line: align
@@ -40,8 +34,7 @@ export class MenuComponent implements OnInit {
 
   setDisplayData() {
     this.store.select('restaurant')
-      .pipe(take(1), map(restaurantState => restaurantState.restaurant)).subscribe((restaurant: Restaurant) => {
-        console.log('weee', restaurant);
+      .pipe(map(restaurantState => restaurantState.restaurant)).subscribe((restaurant: Restaurant) => {
         this.restaurant = restaurant;
       });
   }
