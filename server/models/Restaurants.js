@@ -80,8 +80,12 @@ const Restaurants = new Schema({
 });
 
 Restaurants.set('toJSON', {
-    virtuals: true
-})
+    virtuals: true,
+    transform(doc, ret) {
+        ret.id = ret._id;
+        delete ret.menu
+    }
+});
 
 Restaurants.virtual('groupedMenu') // it's named virtual since it isn't directly from database
     .get(function () {

@@ -18,7 +18,9 @@ export class MenuItem {
     image: string;
     price: string;
     order: number;
-    customization: Array<CustomizationOptions>;
+    comboItem: boolean;
+    customization: CustomizationOptions;
+    comboSelections: ComboSelection[];
     _id: string;
 }
 
@@ -27,12 +29,39 @@ export class Category {
     order: string;
 }
 
+// Customization Models
 export class CustomizationOptions {
+    substitutableIngredients: SubstitutableIngredients[];
+    additionalIngredients: AdditionalIngredients[];
+    removableIngredients: RemovableIngredients[];
+}
+
+class SubstitutableIngredients {
     name: string;
-    price: string;
-    soldOut: boolean;
-    minSelections: string;
+    order: number;
+    additionalCost: string;
+    subtractableCost: string;
+}
+
+class AdditionalIngredients {
+    name: string;
+    order: number;
+    additionalCost: string;
+}
+
+class RemovableIngredients {
+    name: string;
+    order: number;
+    subtractableCost: string;
+}
+
+class ComboSelection {
+    categoryName: string;
+    categoryOrder: number;
+    name: string;
+    additionalCost: string;
     maxSelections: string;
-    addtionalCustomization: Array<CustomizationOptions>;
-    _id: string;
+    minSelections: string;
+    soldOut: boolean;
+    order: number;
 }
