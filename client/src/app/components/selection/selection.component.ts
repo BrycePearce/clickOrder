@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 // NgRx
 import * as MenuActions from '../menu/store/menu.actions';
@@ -27,12 +28,25 @@ export class SelectionComponent implements OnInit {
 
   loadSelection() {
     // todo: handle invalid cases. Navigate to 'Not Found' component
-    const selectionId = this.route.snapshot.url[0].path;
+    const category = this.route.snapshot.url[0].path;
+    const selectionId = this.route.snapshot.url[1].path;
     this.store.select('restaurant')
-      .pipe(map((restaurantState) => restaurantState.restaurant.menu.find(selection => selection._id === selectionId)))
-      .subscribe((selection: MenuItem) => {
-        this.selection = selection;
-      });
+      .pipe(
+        map(restaurantState => restaurantState.restaurant.groupedMenu[category]
+          .find(selection => selection._id === selectionId)
+        )
+      ).subscribe(
+        (selection: MenuItem) => {
+          if (!selection) {
+            console.log('invalid selection, todo: handle');
+            return;
+          }
+          console.log('asd', selection);
+          this.selection = selection;
+        },
+        (err) => {
+          console.log('category was invalid, todo: handle', err);
+        });
   }
 
   addSelection() {

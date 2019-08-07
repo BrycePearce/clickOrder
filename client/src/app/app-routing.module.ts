@@ -20,7 +20,7 @@ const routes: Routes = [
                         pathMatch: 'full'
                     },
                     {
-                        path: ':selectionId',
+                        path: ':category/:selectionId',
                         component: SelectionComponent
                     }
                 ],

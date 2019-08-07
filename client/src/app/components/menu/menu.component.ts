@@ -43,8 +43,8 @@ export class MenuComponent implements OnInit {
     return sortBy(list, o => o[key]);
   }
 
-  loadCustomization(id: string) {
-    this.router.navigate([id], {
+  loadCustomization(category: string, id: string) {
+    this.router.navigate([`${category}/${id}`], {
       relativeTo: this.route
     });
   }
