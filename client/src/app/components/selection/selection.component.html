@@ -11,5 +11,20 @@
     <div>1</div>
     <button (click)="updateQuantity('increment')" class="ml-2">+</button>
   </div>
-  <app-customization [options]="selection.customization"></app-customization>
+
+  <!-- C-C-C-Combo Sides -->
+  <div class="pl-0 d-flex">
+    <h6 class="text-nowrap mb-0" style="order: 1;">
+      Select a Side:
+    </h6>
+    <div class="line ml-1" style="order: 2;"></div>
+  </div>
+  <ul style="display:flex; flex-wrap: wrap;">
+    <li *ngFor="let side of selection.comboSelections.sides">
+      {{side.name}}
+    </li>
+  </ul>
+
+
+  <!-- <app-customization [options]="selection.customization"></app-customization> -->
 </div>
