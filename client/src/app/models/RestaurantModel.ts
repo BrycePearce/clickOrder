@@ -2,13 +2,12 @@
 export class Restaurant {
     name: string;
     address: string;
-    menu: Array<MenuItem>;
     groupedMenu: GroupedMenu;
     categories: Array<Category>;
 }
 
 export class GroupedMenu {
-    [key: string]: MenuItem;
+    [key: string]: MenuItem[];
 }
 
 export class MenuItem {
@@ -20,7 +19,7 @@ export class MenuItem {
     order: number;
     comboItem: boolean;
     customization: CustomizationOptions;
-    comboSelections: ComboSelection[];
+    comboSelections: ComboSelection;
     _id: string;
 }
 
@@ -56,6 +55,8 @@ class RemovableIngredients {
 }
 
 class ComboSelection {
+    sides: SideItem[];
+    drinks: SideItem[];
     categoryName: string;
     categoryOrder: number;
     name: string;
@@ -64,4 +65,13 @@ class ComboSelection {
     minSelections: string;
     soldOut: boolean;
     order: number;
+}
+
+class SideItem {
+    name: string;
+    order: number;
+    additionalCost: string;
+    maxSelections: string;
+    minSelections: string;
+    soldOut: boolean;
 }

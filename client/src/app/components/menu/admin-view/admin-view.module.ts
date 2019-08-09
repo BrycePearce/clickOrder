@@ -6,16 +6,16 @@ import { AdminViewComponent } from './admin-view.component';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
 
 // Third Party
-import { FileSelectDirective } from 'ng2-file-upload';
+import { FileUploadModule } from 'ng2-file-upload/ng2-file-upload';
 
 @NgModule({
     imports: [
         CommonModule,
+        FileUploadModule
     ],
     declarations: [
         AdminViewComponent,
-        FileUploadComponent,
-        FileSelectDirective
+        FileUploadComponent
     ],
     exports: [
         AdminViewComponent

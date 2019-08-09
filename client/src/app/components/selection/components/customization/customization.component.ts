@@ -9,7 +9,7 @@ import { CustomizationOptions } from './../../../../models/RestaurantModel';
   styleUrls: ['./customization.component.scss']
 })
 export class CustomizationComponent implements OnInit {
-  @Input() options: CustomizationOptions[];
+  @Input() options: CustomizationOptions;
   constructor() { }
 
   ngOnInit() {

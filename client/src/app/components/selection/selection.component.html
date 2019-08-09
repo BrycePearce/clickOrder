@@ -19,9 +19,12 @@
     </h6>
     <div class="line ml-1" style="order: 2;"></div>
   </div>
-  <ul style="display:flex; flex-wrap: wrap;">
-    <li *ngFor="let side of selection.comboSelections.sides">
-      {{side.name}}
+  <ul class="d-flex flex-column pt-3 pb-4">
+    <li *ngFor="let side of selection.comboSelections.sides; let i = index" class="mb-2">
+      <div class="custom-control custom-radio">
+        <input type="radio" id="side-option-{{i}}" name="selection" class="custom-control-input">
+        <label class="custom-control-label" for="side-option-{{i}}">{{side.name}}</label>
+      </div>
     </li>
   </ul>
 

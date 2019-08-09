@@ -52,4 +52,8 @@ export class SelectionComponent implements OnInit {
   addSelection() {
     this.store.dispatch(new MenuActions.AddSelection(this.selection));
   }
+
+  updateQuantity(modifier: string) {
+    return;
+  }
 }
