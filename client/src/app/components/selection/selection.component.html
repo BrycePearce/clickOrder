@@ -1,7 +1,6 @@
 <!-- todo: this may need to be a modal -->
-<img *ngIf="selection?.image" class="img w-100" src=" ../../../assets/burg.png">
-
-<div class="selection pt-3 pl-3 pr-3 pb-4">
+<div class="selection pt-3 pl-3 pr-3 pb-4 overflow-auto">
+  <img *ngIf="selection?.image" class="img w-100" src=" ../../../assets/burg.png">
   <h4 class="name">{{selection.name}}</h4>
   <div class="description mt-3">{{selection.description}}</div>
 
@@ -43,13 +42,12 @@
       </div>
     </li>
   </ul>
-
-  <!-- <app-customization [options]="selection.customization"></app-customization> -->
-
 </div>
+<!-- <app-customization [options]="selection.customization"></app-customization> -->
 <!-- Add to Order -->
-<div class="d-flex sticky-footer-wrapper pt-4 pr-3">
-  <div class="flex-fill">
-    <button class="battan">yehhaw pardners</button>
+<div class="selection-container position-fixed w-100 d-flex pt-4 pr-3 pl-3">
+  <div class="d-flex flex-fill flex-wrap">
+    <button class="add-selection-btn text-white rounded">Add (quantity) to Checkout</button>
   </div>
+
 </div>
