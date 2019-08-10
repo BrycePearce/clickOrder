@@ -74,4 +74,5 @@ class SideItem {
     maxSelections: string;
     minSelections: string;
     soldOut: boolean;
+    required: boolean;
 }

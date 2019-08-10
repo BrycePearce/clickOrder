@@ -18,7 +18,7 @@ export class RestaurantEffects {
         switchMap(() => {
             return this.http.get<Restaurant>('http://localhost:3000/api/123/menu');
         }),
-        map(restaurant => {
+        map(restaurant => { // todo: maybe map ordering things here, to avoid having to import service everywhere?
             return new RestaurantActions.SetRestaurant(restaurant);
         })
     );

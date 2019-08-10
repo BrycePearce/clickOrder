@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { map, catchError } from 'rxjs/operators';
-import { throwError } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+// Services
+import { UtilityService } from './../../serivces/utilities/utility.service';
 
 // NgRx
 import * as MenuActions from '../menu/store/menu.actions';
@@ -20,7 +22,7 @@ export class SelectionComponent implements OnInit {
   public loadCustomization = false;
   public selection: MenuItem;
 
-  constructor(private route: ActivatedRoute, private store: Store<fromApp.AppState>) { }
+  constructor(private route: ActivatedRoute, private store: Store<fromApp.AppState>, private utilityService: UtilityService) { }
 
   ngOnInit() {
     this.loadSelection();
@@ -41,7 +43,6 @@ export class SelectionComponent implements OnInit {
             console.log('invalid selection, todo: handle');
             return;
           }
-          console.log('asd', selection);
           this.selection = selection;
         },
         (err) => {

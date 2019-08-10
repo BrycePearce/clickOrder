@@ -19,6 +19,9 @@ import { CoreModule } from './core/core.module';
 import { AppComponent } from './app.component';
 import { SelectionModule } from './components/selection/selection.module';
 
+// Services
+import { UtilityService } from './serivces/utilities/utility.service';
+
 @NgModule({
   imports: [ // modules
     BrowserModule,
@@ -33,7 +36,7 @@ import { SelectionModule } from './components/selection/selection.module';
   declarations: [ // Components, directives and pipes are placed in module's declarations
     AppComponent
   ],
-  providers: [],
+  providers: [UtilityService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

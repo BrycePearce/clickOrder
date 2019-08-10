@@ -1,8 +1,16 @@
-<ul class="pl-0">
-  <li *ngFor="let option of options" class="d-flex">
-    <h6 class="text-nowrap mb-0" style="order: 1;">
-      Select a Side:
-    </h6>
-    <div class="line ml-1" style="order: 2;"></div>
-  </li>
-</ul>
+  <ul class="d-flex flex-column pb-4">
+    <div *ngFor="let customization of customizations | keyvalue" class="mb-2">
+      <div class="d-flex pl-0 mb-2 mt-2">
+        <h6 class="text-nowrap mb-0" style="order: 1;">
+          {{customization.key}}
+        </h6>
+      </div>
+      <!-- <li *ngFor="let customization of options; let i = index" class="pb-2 customization">
+        <div class="custom-control custom-radio">
+          <input type="radio" id="{{category.key}}-{{i}}" name="{{category.key}}"
+            class="custom-control-input btn-success">
+          <label class="custom-control-label" for="{{category.key}}-{{i}}">{{customization.name}}</label>
+        </div>
+      </li> -->
+    </div>
+  </ul>

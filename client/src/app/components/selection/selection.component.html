@@ -6,28 +6,50 @@
   <div class="description mt-3">{{selection.description}}</div>
 
   <div class="quantity-selection-row d-flex mt-3 mb-3">
-    <h6 class="mb-3 mt-3 mr-2">Quantity</h6>
+    <h6 class="mt-3 mr-2">Quantity</h6>
     <button (click)="updateQuantity('decrement')" class="mr-2">-</button>
     <div>1</div>
     <button (click)="updateQuantity('increment')" class="ml-2">+</button>
   </div>
 
   <!-- C-C-C-Combo Sides -->
-  <div class="pl-0 d-flex">
+  <div class="d-flex pl-0 mb-2 mt-2">
     <h6 class="text-nowrap mb-0" style="order: 1;">
       Select a Side:
     </h6>
     <div class="line ml-1" style="order: 2;"></div>
   </div>
-  <ul class="d-flex flex-column pt-3 pb-4">
-    <li *ngFor="let side of selection.comboSelections.sides; let i = index" class="mb-2">
+  <ul class="d-flex flex-column">
+    <li *ngFor="let side of selection.comboSelections.sides; let i = index" class="pb-2 side">
       <div class="custom-control custom-radio">
-        <input type="radio" id="side-option-{{i}}" name="selection" class="custom-control-input">
+        <input type="radio" id="side-option-{{i}}" name="side-option" class="custom-control-input">
         <label class="custom-control-label" for="side-option-{{i}}">{{side.name}}</label>
       </div>
     </li>
   </ul>
 
+  <!-- Side Drinks -->
+  <div class="d-flex pl-0 mb-2 mt-2">
+    <h6 class="text-nowrap mb-0" style="order: 1;">
+      Select a Drink:
+    </h6>
+    <div class="line ml-1" style="order: 2;"></div>
+  </div>
+  <ul class="d-flex flex-column">
+    <li *ngFor="let side of selection.comboSelections.drinks; let i = index" class="pb-2 side">
+      <div class="custom-control custom-radio">
+        <input type="radio" id="side-drink-{{i}}" name="side-drink" class="custom-control-input">
+        <label class="custom-control-label" for="side-drink-{{i}}">{{side.name}}</label>
+      </div>
+    </li>
+  </ul>
 
   <!-- <app-customization [options]="selection.customization"></app-customization> -->
+
+</div>
+<!-- Add to Order -->
+<div class="d-flex sticky-footer-wrapper pt-4 pr-3">
+  <div class="flex-fill">
+    <button class="battan">yehhaw pardners</button>
+  </div>
 </div>
