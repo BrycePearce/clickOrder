@@ -50,28 +50,48 @@ const Restaurants = new Schema({
                 }
             }]
         },
-        comboSelections: [{ // combo options if combo selected. Otherwise will have  to pick sides from a 'sides' selection
-            categoryName: String,
-            categoryOrder: Number,
-            name: String,
-            additionalCost: {
-                type: String,
-                default: null
-            },
-            maxSelections: {
-                type: String,
-                default: 15
-            },
-            minSelections: {
-                type: String,
-                default: 0
-            },
-            soldOut: {
-                type: Boolean,
-                default: false
-            },
-            order: Number
-        }],
+        comboSelections: { // combo options if combo selected. Otherwise will have  to pick sides from a 'sides' selection
+            sides: [{
+                name: String,
+                order: Number,
+                additionalCost: {
+                    type: String,
+                    default: null
+                },
+                maxSelections: {
+                    type: String,
+                    default: 15
+                },
+                minSelections: {
+                    type: String,
+                    default: 0
+                },
+                soldOut: {
+                    type: Boolean,
+                    default: false
+                }
+            }],
+            drinks: [{
+                name: String,
+                order: Number,
+                additionalCost: {
+                    type: String,
+                    default: null
+                },
+                maxSelections: {
+                    type: String,
+                    default: 15
+                },
+                minSelections: {
+                    type: String,
+                    default: 0
+                },
+                soldOut: {
+                    type: Boolean,
+                    default: false
+                }
+            }],
+        },
         image: {
             type: String,
             default: null

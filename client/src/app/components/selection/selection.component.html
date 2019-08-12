@@ -43,11 +43,13 @@
     </li>
   </ul>
 </div>
-<!-- <app-customization [options]="selection.customization"></app-customization> -->
 <!-- Add to Order -->
 <div class="selection-container position-fixed w-100 d-flex pt-4 pr-3 pl-3">
   <div class="d-flex flex-fill flex-wrap">
-    <button class="add-selection-btn text-white rounded">Add (quantity) to Checkout</button>
+    <button class="d-flex flex-nowrap add-selection-btn text-white rounded">
+      <div class="add-quantity-text">Add &#123; &#123; quantity &#125; &#125; to Checkout</div>
+      <div class="text-right">$5.15</div>
+    </button>
   </div>
-
 </div>
+<!-- <app-customization [options]="selection.customization"></app-customization> -->

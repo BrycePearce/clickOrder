@@ -1,9 +1,10 @@
 const Restaurants = require('./Restaurants.js');
 
 Restaurants.deleteMany({}, () => {
-    console.log('DB RESET!')
+    console.log('DB RESET!');
 })
 
+// model
 const rest = new Restaurants({
     name: "Taco Bell",
     address: "123 North Ave, Springfield, VA",
@@ -12,7 +13,7 @@ const rest = new Restaurants({
             order: 1
         },
         {
-            name: "desserts",
+            name: "!sweets !@#and!@# treats!",
             order: 2
         }
     ],
@@ -27,6 +28,11 @@ const rest = new Restaurants({
             comboItem: true, // if this is enabled, don't need to show price of combo items. If not, show price of combo items. Can also prompt user if they want to make it a combo. Also can be used to check whether it should be required or not
             customization: {
                 substitutableIngredients: [{
+                        name: 'Wheat Tortilla',
+                        order: 2,
+                        additionalCost: '$0.10'
+                    },
+                    {
                         name: 'Wheat Tortilla',
                         order: 2,
                         additionalCost: '$0.10'
@@ -104,8 +110,9 @@ const rest = new Restaurants({
                         minSelections: 0,
                         soldOut: false,
                         order: 4
-                    },
-                    {
+                    }
+                ],
+                drinks: [{
                         name: 'Water',
                         additionalCost: null,
                         maxSelections: 10,
@@ -124,12 +131,6 @@ const rest = new Restaurants({
                 ]
             }
         },
-
-
-
-
-
-
         {
             name: "5 layer burrito",
             category: "burritos",
@@ -240,8 +241,8 @@ const rest = new Restaurants({
             }
         },
         {
-            name: "cinnamonSticks",
-            category: "desserts",
+            name: "!Cinnamon @ Sticks!",
+            category: "!sweets !@#and!@# treats!",
             price: "$2.00",
             description: "You Cinna you want some?",
             order: 1,

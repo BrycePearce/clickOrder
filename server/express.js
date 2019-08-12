@@ -17,9 +17,9 @@ const uri = process.env.MONGO_URI;
 const mongoose = require('mongoose');
 
 mongoose.connect(uri, {
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    useFindAndModify: false
 });
-
 require('./models/seed.js');
 
 // const middleware = require('./middleware')
