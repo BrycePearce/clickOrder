@@ -38,3 +38,4 @@ todo: need to use hosting for images, like google cloud or amazon s3 ( bill refe
 ----
 
 todo: consider having a base page that lists all available restaurants
+todo: revisit  height: calc(100vh - 200px) !important; ideally shouldn't need any parent classes at all, just have everything self contained in button component

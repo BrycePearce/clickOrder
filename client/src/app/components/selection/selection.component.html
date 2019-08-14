@@ -16,40 +16,62 @@
     <h6 class="text-nowrap mb-0" style="order: 1;">
       Select a Side:
     </h6>
-    <div class="line ml-1" style="order: 2;"></div>
+    <!-- <div class="line ml-1" style="order: 2;"></div> -->
+
+
   </div>
-  <ul class="d-flex flex-column">
-    <li *ngFor="let side of selection.comboSelections.sides; let i = index" class="pb-2 side">
-      <div class="custom-control custom-radio">
-        <input type="radio" id="side-option-{{i}}" name="side-option" class="custom-control-input">
-        <label class="custom-control-label" for="side-option-{{i}}">{{side.name}}</label>
+
+
+
+
+
+
+  <!-- in-progress -->
+  <ul class="d-flex flex-column justify-content-between">
+    <li *ngFor="let side of selection.comboSelections.sides; let i = index" class="w-100 side">
+      <div class="d-flex pl-0 custom-control custom-radio align-content-start">
+        <div class="pt-3 pb-3 mr-2">
+          <input type="radio" id="side-option-{{i}}" name="side-option" class="position-relative custom-control-input">
+        </div>
+        <div>
+          <label class="custom-control-label pt-3 pb-3" for="side-option-{{i}}"><span>{{side.name}}</span></label>
+        </div>
       </div>
     </li>
   </ul>
 
-  <!-- Side Drinks -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Side Drinks  THIS IS ALL OVERFLOW CONTENT -->
   <div class="d-flex pl-0 mb-2 mt-2">
     <h6 class="text-nowrap mb-0" style="order: 1;">
       Select a Drink:
     </h6>
-    <div class="line ml-1" style="order: 2;"></div>
+    <!-- <div class="line ml-1" style="order: 2;"></div> -->
   </div>
   <ul class="d-flex flex-column">
     <li *ngFor="let side of selection.comboSelections.drinks; let i = index" class="pb-2 side">
       <div class="custom-control custom-radio">
         <input type="radio" id="side-drink-{{i}}" name="side-drink" class="custom-control-input">
-        <label class="custom-control-label" for="side-drink-{{i}}">{{side.name}}</label>
+        <label class="custom-control-label" for="side-drink-{{i}}"><span>{{side.name}}</span></label>
       </div>
+      <div class="line ml-1" style="order: 2;"></div>
     </li>
   </ul>
 </div>
 <!-- Add to Order -->
-<div class="selection-container position-fixed w-100 d-flex pt-4 pr-3 pl-3">
-  <div class="d-flex flex-fill flex-wrap">
-    <button class="d-flex flex-nowrap add-selection-btn text-white rounded">
-      <div class="add-quantity-text">Add &#123; &#123; quantity &#125; &#125; to Checkout</div>
-      <div class="text-right">$5.15</div>
-    </button>
-  </div>
-</div>
+<!-- <app-view-cart-button></app-view-cart-button> -->
+
+
 <!-- <app-customization [options]="selection.customization"></app-customization> -->

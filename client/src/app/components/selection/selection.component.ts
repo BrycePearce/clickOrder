@@ -21,6 +21,7 @@ import { MenuItem } from '../../models/RestaurantModel';
 export class SelectionComponent implements OnInit {
   public loadCustomization = false;
   public selection: MenuItem;
+  public quantity = 1;
 
   constructor(private route: ActivatedRoute, private store: Store<fromApp.AppState>, private utilityService: UtilityService) { }
 
@@ -55,6 +56,10 @@ export class SelectionComponent implements OnInit {
   }
 
   updateQuantity(modifier: string) {
-    return;
+    if (modifier === 'increment') {
+      if (this.quantity < this.selection.maxSelections) { this.quantity++; }
+    } else {
+      if (this.quantity > this.selection.minSelections) { this.quantity--; }
+    }
   }
 }

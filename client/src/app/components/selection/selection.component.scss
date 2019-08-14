@@ -1,7 +1,3 @@
-li.side:last-child {
-  padding-bottom: 0px !important;
-}
-
 ul {
   padding: 0;
   margin: 0;
@@ -20,12 +16,8 @@ ul {
   height: 60vw;
 }
 
-.line {
-  height: 1px;
-  width: 100%;
-  background: gray;
-  align-self: center;
-  margin-top: 2px;
+.side {
+  border-bottom: 1px solid gray;
 }
 
 .selection-container {

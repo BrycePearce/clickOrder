@@ -20,6 +20,8 @@ export class MenuItem {
     comboItem: boolean;
     customization: CustomizationOptions;
     comboSelections: ComboSelection;
+    minSelections: number;
+    maxSelections: number;
     _id: string;
 }
 
