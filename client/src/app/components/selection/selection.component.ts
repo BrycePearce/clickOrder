@@ -62,4 +62,8 @@ export class SelectionComponent implements OnInit {
       if (this.quantity > this.selection.minSelections) { this.quantity--; }
     }
   }
+
+  addToCart(selection: MenuItem) {
+    console.log('aww yiss', selection);
+  }
 }
