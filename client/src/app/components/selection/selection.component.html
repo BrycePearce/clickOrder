@@ -18,7 +18,7 @@
     </h6>
     <!-- <div class="line ml-1" style="order: 2;"></div> -->
     <ul class="d-flex flex-column justify-content-between">
-      <li *ngFor="let side of selection.comboSelections.sides; let i = index" class="w-100">
+      <li *ngFor="let side of selection.comboSelections.sides; let i = index" class="w-100 border-bottom">
         <div class="d-flex pl-0 align-content-start">
           <div class="pt-3 pb-3 mr-2 custom-control custom-radio">
             <input type="radio" id="side-option-{{i}}" name="side-option" class="custom-control-input">
@@ -27,7 +27,6 @@
         </div>
       </li>
     </ul>
-
   </div>
 
   <!-- Side Drinks  THIS IS ALL OVERFLOW CONTENT -->
