@@ -12,61 +12,37 @@
   </div>
 
   <!-- C-C-C-Combo Sides -->
-  <div class="d-flex pl-0 mb-2 mt-2">
-    <h6 class="text-nowrap mb-0" style="order: 1;">
+  <div class="d-flex flex-column">
+    <h6 class="text-nowrap mb-0 font-weight-bold pl-0 my-2">
       Select a Side:
     </h6>
     <!-- <div class="line ml-1" style="order: 2;"></div> -->
-
-
+    <ul class="d-flex flex-column justify-content-between">
+      <li *ngFor="let side of selection.comboSelections.sides; let i = index" class="w-100 border-bottom">
+        <div class="d-flex pl-0 align-content-start">
+          <div class="pt-3 pb-3 mr-2 custom-control custom-radio">
+            <input type="radio" id="side-option-{{i}}" name="side-option" class="custom-control-input">
+            <label class="custom-control-label" for="side-option-{{i}}"><span>{{side.name}}</span></label>
+          </div>
+        </div>
+      </li>
+    </ul>
   </div>
-
-
-
-
-
-
-  <!-- in-progress -->
-  <ul class="d-flex flex-column justify-content-between">
-    <li *ngFor="let side of selection.comboSelections.sides; let i = index" class="w-100 side">
-      <div class="d-flex pl-0 custom-control custom-radio align-content-start">
-        <div class="pt-3 pb-3 mr-2">
-          <input type="radio" id="side-option-{{i}}" name="side-option" class="position-relative custom-control-input">
-        </div>
-        <div>
-          <label class="custom-control-label pt-3 pb-3" for="side-option-{{i}}"><span>{{side.name}}</span></label>
-        </div>
-      </div>
-    </li>
-  </ul>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   <!-- Side Drinks  THIS IS ALL OVERFLOW CONTENT -->
-  <div class="d-flex pl-0 mb-2 mt-2">
-    <h6 class="text-nowrap mb-0" style="order: 1;">
+  <div class="d-flex flex-column">
+    <h6 class="text-nowrap mb-0 font-weight-bold pl-0 my-2">
       Select a Drink:
     </h6>
-    <!-- <div class="line ml-1" style="order: 2;"></div> -->
   </div>
   <ul class="d-flex flex-column">
-    <li *ngFor="let side of selection.comboSelections.drinks; let i = index" class="pb-2 side">
-      <div class="custom-control custom-radio">
-        <input type="radio" id="side-drink-{{i}}" name="side-drink" class="custom-control-input">
-        <label class="custom-control-label" for="side-drink-{{i}}"><span>{{side.name}}</span></label>
+    <li *ngFor="let side of selection.comboSelections.drinks; let i = index" class="pb-2">
+      <div class="d-flex pl-0 align-content-start">
+        <div class="pt-3 pb-3 mr-2 custom-control custom-radio">
+          <input class="custom-control-input" type="radio" id="side-drink-{{i}}" name="side-drink">
+          <label class="custom-control-label"><span>{{side.name}}</span></label>
+        </div>
       </div>
-      <div class="line ml-1" style="order: 2;"></div>
     </li>
   </ul>
 </div>
