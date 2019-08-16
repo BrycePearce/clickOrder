@@ -52,3 +52,7 @@ ul {
 .add-quantity-text {
   flex: 1;
 }
+
+.btn[disabled] {
+  background-color: #d4d4db;
+}

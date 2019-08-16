@@ -1,9 +1,7 @@
+import { FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
-
-// Services
-import { UtilityService } from './../../serivces/utilities/utility.service';
 
 // NgRx
 import * as MenuActions from '../menu/store/menu.actions';
@@ -22,8 +20,12 @@ export class SelectionComponent implements OnInit {
   public loadCustomization = false;
   public selection: MenuItem;
   public quantity = 1;
+  public selectionForm = this.fb.group({
+    side: [, Validators.required],
+    drink: ['', Validators.required]
+  });
 
-  constructor(private route: ActivatedRoute, private store: Store<fromApp.AppState>, private utilityService: UtilityService) { }
+  constructor(private route: ActivatedRoute, private store: Store<fromApp.AppState>, private fb: FormBuilder) { }
 
   ngOnInit() {
     this.loadSelection();
@@ -51,10 +53,6 @@ export class SelectionComponent implements OnInit {
         });
   }
 
-  addSelection() {
-    this.store.dispatch(new MenuActions.AddSelection(this.selection));
-  }
-
   updateQuantity(modifier: string) {
     if (modifier === 'increment') {
       if (this.quantity < this.selection.maxSelections) { this.quantity++; }
@@ -63,7 +61,12 @@ export class SelectionComponent implements OnInit {
     }
   }
 
-  addToCart(selection: MenuItem) {
-    console.log('aww yiss', selection);
+  addSelection() {
+    if (!this.selectionForm.valid) {
+      return;
+    }
+
+    // todo:
+    // this.store.dispatch(new MenuActions.AddSelection(this.selection));
   }
 }
