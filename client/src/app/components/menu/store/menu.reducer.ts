@@ -1,10 +1,10 @@
-import { MenuItem } from './../../../models/RestaurantModel';
+import { Selection } from './../../../models/RestaurantModel';
 // Actions
 import * as MenuActions from './menu.actions';
 
 // Define the state for Menu Selections
 export interface State {
-    selections: MenuItem[];
+    selections: Selection[];
 }
 
 const initialState: State = {

@@ -10,7 +10,7 @@ import * as fromApp from '../../store/app.reducer';
 import { UtilityService } from './../../serivces/utilities/utility.service';
 
 // Models
-import { Restaurant, MenuItem } from '../../models/RestaurantModel';
+import { Restaurant } from '../../models/RestaurantModel';
 
 // Third Party
 import startCase from 'lodash-es/startCase';
@@ -23,7 +23,6 @@ import sortBy from 'lodash-es/sortBy';
 })
 export class MenuComponent implements OnInit {
   public restaurant: Restaurant;
-  public currentSelection = new MenuItem();
   public startCase = startCase;
   public sortBy = sortBy;
 

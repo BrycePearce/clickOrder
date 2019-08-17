@@ -9,7 +9,7 @@ import * as fromApp from '../../store/app.reducer';
 import { Store } from '@ngrx/store';
 
 // Models
-import { MenuItem } from '../../models/RestaurantModel';
+import { SideItem, ComboSelection, Selection } from './../../models/RestaurantModel';
 
 @Component({
   selector: 'app-selection',
@@ -18,11 +18,11 @@ import { MenuItem } from '../../models/RestaurantModel';
 })
 export class SelectionComponent implements OnInit {
   public loadCustomization = false;
-  public selection: MenuItem;
+  public selection: Selection;
   public quantity = 1;
   public selectionForm = this.fb.group({
-    side: [, Validators.required],
-    drink: ['', Validators.required]
+    sides: ['', Validators.required],
+    drinks: ['', Validators.required]
   });
 
   constructor(private route: ActivatedRoute, private store: Store<fromApp.AppState>, private fb: FormBuilder) { }
@@ -41,7 +41,8 @@ export class SelectionComponent implements OnInit {
           .find(selection => selection._id === selectionId)
         )
       ).subscribe(
-        (selection: MenuItem) => {
+        (selection: Selection) => {
+          console.log('select', selection);
           if (!selection) {
             console.log('invalid selection, todo: handle');
             return;
@@ -65,8 +66,27 @@ export class SelectionComponent implements OnInit {
     if (!this.selectionForm.valid) {
       return;
     }
+    this.store.dispatch(new MenuActions.AddSelection(this.formSelection()));
+  }
 
-    // todo:
-    // this.store.dispatch(new MenuActions.AddSelection(this.selection));
+  private formSelection(): Selection { // todo: there has to be a better way to map this
+    const selection = new Selection();
+    selection.comboSelections = new ComboSelection();
+    selection.comboSelections.sides = [];
+    selection.comboSelections.drinks = [];
+
+    let sideSelection = new SideItem();
+    let drinkSelection = new SideItem();
+    sideSelection = this.selection.comboSelections.sides.find(side => side._id === this.selectionForm.value.sides);
+    drinkSelection = this.selection.comboSelections.drinks.find(drink => drink._id === this.selectionForm.value.drinks);
+    selection.name = this.selection.name;
+    selection.quantity = this.quantity;
+    selection.description = this.selection.description;
+    selection.image = this.selection.image;
+    selection.price = this.selection.price;
+    selection.category = this.selection.category;
+    selection.comboSelections.sides.push(sideSelection);
+    selection.comboSelections.drinks.push(drinkSelection);
+    return selection;
   }
 }
