@@ -146,6 +146,11 @@ const rest = new Restaurants({
                         additionalCost: '$0.10'
                     },
                     {
+                        name: 'Wheat Tortilla',
+                        order: 2,
+                        additionalCost: '$0.10'
+                    },
+                    {
                         name: 'No Tortilla',
                         order: 1,
                         subtractableCost: '$0.10'
@@ -157,7 +162,7 @@ const rest = new Restaurants({
                     }
                 ],
                 additionalIngredients: [{
-                        name: 'Extra Cheese',
+                        name: 'Cheddar Cheese',
                         order: 3,
                         additionalCost: '$0.99'
                     },
@@ -183,61 +188,60 @@ const rest = new Restaurants({
                     {
                         name: 'Refried Beans',
                         order: 1
-                    },
-                    {
-                        name: 'Cheddar Cheese',
-                        order: 3
-                    },
-                    {
-                        name: 'Ground Beef',
-                        order: 4
                     }
                 ]
             },
-            comboSelections: { // these are all the combo sides
+            comboSelections: {
                 sides: [{
-                    name: "Frito Lay's",
-                    additionalCost: null,
-                    maxSelections: 10,
-                    minSelections: 0,
-                    soldOut: false,
-                    order: 2
-                }, {
-                    name: "Dorito's Cool Ranch",
-                    additionalCost: '$1.38',
-                    maxSelections: 10,
-                    minSelections: 0,
-                    soldOut: false,
-                    order: 1
-                }, {
-                    name: "Caesar Salad",
-                    additionalCost: '$3.38',
-                    maxSelections: 10,
-                    minSelections: 0,
-                    soldOut: false,
-                    order: 3
-                }, {
-                    name: "Garden Salad",
-                    additionalCost: null,
-                    maxSelections: 10,
-                    minSelections: 0,
-                    soldOut: false,
-                    order: 4
-                }, {
-                    name: 'Water',
-                    additionalCost: null,
-                    maxSelections: 10,
-                    minSelections: 0,
-                    soldOut: false,
-                    order: 2
-                }, {
-                    name: 'Cola',
-                    additionalCost: '$1.99',
-                    maxSelections: 10,
-                    minSelections: 0,
-                    soldOut: false,
-                    order: 1
-                }]
+                        name: "Frito Lay's",
+                        additionalCost: null,
+                        maxSelections: 10,
+                        minSelections: 0,
+                        soldOut: false,
+                        order: 2
+                    },
+                    {
+                        name: "Dorito's Cool Ranch",
+                        additionalCost: '$1.38',
+                        maxSelections: 10,
+                        minSelections: 0,
+                        soldOut: false,
+                        order: 1
+                    },
+                    {
+                        name: "Caesar Salad",
+                        additionalCost: '$3.38',
+                        maxSelections: 10,
+                        minSelections: 0,
+                        soldOut: false,
+                        order: 3
+                    },
+                    {
+                        name: "Garden Salad",
+                        additionalCost: null,
+                        maxSelections: 10,
+                        minSelections: 0,
+                        soldOut: false,
+                        order: 4
+                    }
+                ],
+                drinks: [{
+                        name: 'Water on the rocks',
+                        additionalCost: '$0.01',
+                        maxSelections: 10,
+                        minSelections: 0,
+                        soldOut: false,
+                        order: 2
+                    },
+                    {
+                        name: 'Komrade Cola',
+                        additionalCost: '$0.99',
+                        maxSelections: 10,
+                        minSelections: 0,
+                        soldOut: false,
+                        order: 1
+                    }
+                ]
             }
         },
         {

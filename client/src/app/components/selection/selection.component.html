@@ -12,7 +12,7 @@
   </div>
 
   <!-- C-C-C-Combo Sides -->
-  <div class="d-flex flex-column mb-4">
+  <div *ngIf="selection.comboSelections.sides.length > 0" class="d-flex flex-column mb-4">
     <h6 class="text-nowrap mb-0 font-weight-bold pl-0">
       Select a Side:
     </h6>
@@ -22,7 +22,10 @@
           <div class="pt-3 pb-3 custom-control custom-radio">
             <input formControlName="sides" type="radio" id="side-option-{{i}}" name="sides"
               class="custom-control-input pl-1" [value]="side._id">
-            <label class="custom-control-label" for="side-option-{{i}}"><span>{{side.name}}</span></label>
+            <label class="custom-control-label" for="side-option-{{i}}">
+              <span>{{side.name}}</span>
+              <span *ngIf="side.additionalCost" class="ml-1 text-nowrap">+{{side.additionalCost}}</span>
+            </label>
           </div>
         </div>
       </li>
@@ -30,7 +33,7 @@
   </div>
 
   <!-- Side Drinks -->
-  <div class="d-flex flex-column mb-4">
+  <div *ngIf="selection.comboSelections.drinks.length > 0" class="d-flex flex-column mb-4">
     <h6 class="text-nowrap mb-0 font-weight-bold pl-0">
       Select a Drink:
     </h6>
@@ -40,7 +43,10 @@
           <div class="pt-3 pb-3 custom-control custom-radio">
             <input formControlName="drinks" type="radio" id="drink-{{i}}" name="drinks"
               class="custom-control-input pl-1" [value]="drink._id">
-            <label class="custom-control-label" for="drink-{{i}}"><span>{{drink.name}}</span></label>
+            <label class="custom-control-label" for="drink-{{i}}">
+              <span>{{drink.name}}</span>
+              <span *ngIf="drink.additionalCost" class="ml-1 text-nowrap">+{{drink.additionalCost}}</span>
+            </label>
           </div>
         </div>
       </li>
