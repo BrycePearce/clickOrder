@@ -1,6 +1,6 @@
-import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { map } from 'rxjs/operators';
+import { Router, ActivatedRoute } from '@angular/router';
+import { map, take } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 
 // Ngrx
@@ -10,11 +10,12 @@ import * as fromApp from '../../store/app.reducer';
 import { UtilityService } from './../../serivces/utilities/utility.service';
 
 // Models
-import { Restaurant } from '../../models/RestaurantModel';
+import { Restaurant, Selection } from '../../models/RestaurantModel';
 
 // Third Party
 import startCase from 'lodash-es/startCase';
 import sortBy from 'lodash-es/sortBy';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-menu',
@@ -23,6 +24,7 @@ import sortBy from 'lodash-es/sortBy';
 })
 export class MenuComponent implements OnInit {
   public restaurant: Restaurant;
+  public checkout: Observable<{ selections: Selection[] }> = this.store.select('checkout');
   public startCase = startCase;
   public sortBy = sortBy;
 
@@ -34,9 +36,10 @@ export class MenuComponent implements OnInit {
     this.setDisplayData();
   }
 
+  // todo: use async pipe
   setDisplayData() {
     this.store.select('restaurant')
-      .pipe(map(restaurantState => restaurantState.restaurant)).subscribe((restaurant: Restaurant) => {
+      .pipe(map(restaurantState => restaurantState.restaurant), take(1)).subscribe((restaurant: Restaurant) => {
         this.restaurant = restaurant;
       });
   }

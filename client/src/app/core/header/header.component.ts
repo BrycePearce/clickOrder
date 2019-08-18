@@ -1,11 +1,13 @@
-import { Restaurant } from 'src/app/models/RestaurantModel';
+import { Observable } from 'rxjs/internal/Observable';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+
+// Models
+import { Restaurant, Selection } from 'src/app/models/RestaurantModel';
 
 // NgRx
 import * as fromApp from '../../store/app.reducer';
+import { map, take } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
@@ -14,6 +16,7 @@ import { map } from 'rxjs/operators';
 })
 export class HeaderComponent implements OnInit {
   public restaurant: Restaurant;
+  public checkout: Observable<{ selections: Selection[] }> = this.store.select('checkout');
 
   constructor(private store: Store<fromApp.AppState>) { }
 
@@ -23,7 +26,7 @@ export class HeaderComponent implements OnInit {
 
   setDisplayData() {
     this.store.select('restaurant')
-      .pipe(map(restaurantState => restaurantState.restaurant)).subscribe((restaurant: Restaurant) => {
+      .pipe(map(restaurantState => restaurantState.restaurant), take(1)).subscribe((restaurant: Restaurant) => {
         this.restaurant = restaurant;
       });
   }
