@@ -128,7 +128,9 @@ const rest = new Restaurants({
                         soldOut: false,
                         order: 1
                     }
-                ]
+                ],
+                sideRequired: true,
+                drinkRequired: true
             }
         },
         {

@@ -13,9 +13,12 @@
 
   <!-- C-C-C-Combo Sides -->
   <div *ngIf="selection.comboSelections.sides.length > 0" class="d-flex flex-column mb-4">
-    <h6 class="text-nowrap mb-0 font-weight-bold pl-0">
-      Select a Side:
-    </h6>
+    <div class="d-flex flex-row">
+      <h6 class="font-weight-bold mb-0 pl-0">
+        Select a Side:
+      </h6>
+      <span class="ml-auto text-secondary">{{selection.comboSelections.sideRequired ? 'Required' : 'Optional'}}</span>
+    </div>
     <ul class="d-flex flex-column justify-content-between">
       <li *ngFor="let side of selection.comboSelections.sides; let i = index" class="w-100 border-bottom">
         <div class="d-flex pl-0 align-content-start">
@@ -34,9 +37,12 @@
 
   <!-- Side Drinks -->
   <div *ngIf="selection.comboSelections.drinks.length > 0" class="d-flex flex-column mb-4">
-    <h6 class="text-nowrap mb-0 font-weight-bold pl-0">
-      Select a Drink:
-    </h6>
+    <div class="d-flex flex-row">
+      <h6 class="font-weight-bold mb-0 pl-0">
+        Select a Side:
+      </h6>
+      <span class="ml-auto text-secondary">{{selection.comboSelections.drinkRequired ? 'Required' : 'Optional'}}</span>
+    </div>
     <ul class="d-flex flex-column justify-content-between">
       <li *ngFor="let drink of selection.comboSelections.drinks; let i = index" class="w-100 border-bottom">
         <div class="d-flex pl-0 align-content-start">

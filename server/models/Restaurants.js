@@ -16,9 +16,13 @@ const Restaurants = new Schema({
         description: String,
         order: Number, // display order
         soldOut: Boolean,
-        comboItem: {
-            type: Boolean,
-            default: false
+        maxSelections: {
+            type: Number,
+            default: 15
+        },
+        minSelections: {
+            type: Number,
+            default: 1
         },
         customization: { // todo: should this be a computed property?
             substitutableIngredients: [{
@@ -50,7 +54,15 @@ const Restaurants = new Schema({
                 }
             }]
         },
-        comboSelections: { // combo options if combo selected. Otherwise will have  to pick sides from a 'sides' selection
+        comboSelections: { // combo options if combo selected or prompted. Otherwise will have  to pick sides from a 'sides' selection
+            sideRequired: {
+                type: Boolean,
+                default: false
+            },
+            drinkRequired: {
+                type: Boolean,
+                default: false
+            },
             sides: [{
                 name: String,
                 order: Number,
@@ -59,12 +71,12 @@ const Restaurants = new Schema({
                     default: null
                 },
                 maxSelections: {
-                    type: String,
+                    type: Number,
                     default: 15
                 },
                 minSelections: {
-                    type: String,
-                    default: 0
+                    type: Number,
+                    default: 1
                 },
                 soldOut: {
                     type: Boolean,
@@ -79,18 +91,18 @@ const Restaurants = new Schema({
                     default: null
                 },
                 maxSelections: {
-                    type: String,
+                    type: Number,
                     default: 15
                 },
                 minSelections: {
-                    type: String,
-                    default: 0
+                    type: Number,
+                    default: 1
                 },
                 soldOut: {
                     type: Boolean,
                     default: false
                 }
-            }],
+            }]
         },
         image: {
             type: String,

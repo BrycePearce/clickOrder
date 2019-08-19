@@ -21,14 +21,15 @@ export class SelectionComponent implements OnInit {
   public selection: Selection;
   public quantity = 1;
   public selectionForm = this.fb.group({
-    sides: ['', Validators.required],
-    drinks: ['', Validators.required]
+    sides: [''],
+    drinks: ['']
   });
 
   constructor(private router: Router, private route: ActivatedRoute, private store: Store<fromApp.AppState>, private fb: FormBuilder) { }
 
   ngOnInit() {
     this.loadSelection();
+    this.setValidators();
   }
 
   loadSelection() {
@@ -51,6 +52,19 @@ export class SelectionComponent implements OnInit {
         (err) => {
           console.log('category was invalid, todo: handle', err);
         });
+  }
+
+  private setValidators() {
+    const sideRequired = this.selection.comboSelections.sideRequired;
+    const drinkRequired = this.selection.comboSelections.drinkRequired;
+    if (sideRequired && this.selection.comboSelections.sides.length > 0) {
+      this.selectionForm.get('sides').setValidators([Validators.required]);
+      this.selectionForm.updateValueAndValidity();
+    }
+    if (drinkRequired && this.selection.comboSelections.drinks.length > 0) {
+      this.selectionForm.get('drinks').setValidators([Validators.required]);
+      this.selectionForm.updateValueAndValidity();
+    }
   }
 
   updateQuantity(modifier: string) {

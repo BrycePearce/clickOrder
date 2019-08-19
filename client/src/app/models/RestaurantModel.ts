@@ -67,6 +67,8 @@ export class ComboSelection {
     minSelections: string;
     soldOut: boolean;
     order: number;
+    sideRequired: boolean;
+    drinkRequired: boolean;
 }
 
 export class SideItem {
