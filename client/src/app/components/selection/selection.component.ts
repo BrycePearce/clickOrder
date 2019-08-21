@@ -54,7 +54,7 @@ export class SelectionComponent implements OnInit {
         });
   }
 
-  private setValidators() {
+  setValidators() {
     const sideRequired = this.selection.comboSelections.sideRequired;
     const drinkRequired = this.selection.comboSelections.drinkRequired;
     if (sideRequired && this.selection.comboSelections.sides.length > 0) {
@@ -67,11 +67,22 @@ export class SelectionComponent implements OnInit {
     }
   }
 
+  calculateTotalCost() {
+    const baseCost = Number(this.selection.price);
+    const sideCost = Number(this.selectionForm.get('sides').value.additionalCost || 0);
+    const drinkCost = Number(this.selectionForm.get('drinks').value.additionalCost || 0);
+    return (baseCost + sideCost + drinkCost) * this.quantity;
+  }
+
   updateQuantity(modifier: string) {
     if (modifier === 'increment') {
-      if (this.quantity < this.selection.maxSelections) { this.quantity++; }
+      if (this.quantity < this.selection.maxSelections) {
+        this.quantity++;
+      }
     } else {
-      if (this.quantity > this.selection.minSelections) { this.quantity--; }
+      if (this.quantity > this.selection.minSelections) {
+        this.quantity--;
+      }
     }
   }
 
@@ -92,13 +103,13 @@ export class SelectionComponent implements OnInit {
     selection.quantity = this.quantity;
     selection.description = this.selection.description;
     selection.image = this.selection.image;
-    selection.price = this.selection.price;
+    selection.price = this.calculateTotalCost().toString();
     selection.category = this.selection.category;
     selection.comboSelections.sides.push(
-      this.selection.comboSelections.sides.find(side => side._id === this.selectionForm.value.sides)
+      this.selection.comboSelections.sides.find(side => side._id === this.selectionForm.value.sides._id)
     );
     selection.comboSelections.drinks.push(
-      this.selection.comboSelections.drinks.find(drink => drink._id === this.selectionForm.value.drinks)
+      this.selection.comboSelections.drinks.find(drink => drink._id === this.selectionForm.value.drinks._id)
     );
     return selection;
   }

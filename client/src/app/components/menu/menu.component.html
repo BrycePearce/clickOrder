@@ -10,7 +10,7 @@
         <div class="">
           <h6 class="mb-0">{{startCase(selection.name)}}</h6>
           <div class="text-secondary">{{selection.description}}</div>
-          <div class="pt-1">{{selection.price}}</div>
+          <div class="pt-1">{{selection.price | currency}}</div>
         </div>
         <div *ngIf="selection.image" class="" style="width: 96px; height: 88px;">
           <img src="../../../assets/burg.png" style="height:88px;">
