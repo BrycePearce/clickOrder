@@ -53,4 +53,10 @@ export class MenuComponent implements OnInit {
       relativeTo: this.route
     });
   }
+
+  calculateTotalCost(checkout: { selections: Selection[] }) {
+    return checkout.selections.reduce(
+      (accumulator, currentValue) => accumulator + Number(currentValue.price), 0
+    );
+  }
 }

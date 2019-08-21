@@ -21,4 +21,8 @@
   </li>
 </ul>
 
-<div>{{(checkout | async).selections.length}} items currently selected</div>
+<div class="d-flex justify-content-between">
+  <div>{{(checkout | async).selections.length}}</div>
+  <div>View Order</div>
+  <div>{{calculateTotalCost(checkout | async) | currency}}</div>
+</div>
