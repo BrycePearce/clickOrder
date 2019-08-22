@@ -20,7 +20,7 @@ const rest = new Restaurants({
     menu: [{
             name: "bean burrito",
             category: "burritos",
-            price: "$1.99",
+            price: "1.99",
             description: "A tortilla with refried beans inside. What's that other stuff? Don't worry about it.",
             image: "todo",
             order: 1,
@@ -30,28 +30,28 @@ const rest = new Restaurants({
                 substitutableIngredients: [{
                         name: 'Wheat Tortilla',
                         order: 2,
-                        additionalCost: '$0.10'
+                        additionalCost: '0.10'
                     },
                     {
                         name: 'Wheat Tortilla',
                         order: 2,
-                        additionalCost: '$0.10'
+                        additionalCost: '0.10'
                     },
                     {
                         name: 'No Tortilla',
                         order: 1,
-                        subtractableCost: '$0.10'
+                        subtractableCost: '0.10'
                     },
                     {
                         name: 'Pinto Beans',
                         order: 3,
-                        subtractableCost: '$0.10'
+                        subtractableCost: '0.10'
                     }
                 ],
                 additionalIngredients: [{
                         name: 'Cheddar Cheese',
                         order: 3,
-                        additionalCost: '$0.99'
+                        additionalCost: '0.99'
                     },
                     {
                         name: 'Sour Cream',
@@ -64,13 +64,13 @@ const rest = new Restaurants({
                     {
                         name: 'Roma tomato',
                         order: 4,
-                        additionalCost: '$0.20'
+                        additionalCost: '0.20'
                     }
                 ],
                 removableIngredients: [{
                         name: 'Tortilla',
                         order: 2,
-                        subtractableCost: '$0.10'
+                        subtractableCost: '0.10'
                     },
                     {
                         name: 'Refried Beans',
@@ -89,7 +89,7 @@ const rest = new Restaurants({
                     },
                     {
                         name: "Dorito's Cool Ranch",
-                        additionalCost: '$1.38',
+                        additionalCost: '1.38',
                         maxSelections: 10,
                         minSelections: 0,
                         soldOut: false,
@@ -97,7 +97,7 @@ const rest = new Restaurants({
                     },
                     {
                         name: "Caesar Salad",
-                        additionalCost: '$3.38',
+                        additionalCost: '3.38',
                         maxSelections: 10,
                         minSelections: 0,
                         soldOut: false,
@@ -122,7 +122,7 @@ const rest = new Restaurants({
                     },
                     {
                         name: 'Doc Pepp',
-                        additionalCost: '$1.99',
+                        additionalCost: '1.99',
                         maxSelections: 10,
                         minSelections: 0,
                         soldOut: false,
@@ -136,7 +136,7 @@ const rest = new Restaurants({
         {
             name: "5 layer burrito",
             category: "burritos",
-            price: "$8.99",
+            price: "8.99",
             description: "A burrito with layers on layers, on LAYERS. Sort of like onions.",
             order: 2,
             image: null,
@@ -145,28 +145,28 @@ const rest = new Restaurants({
                 substitutableIngredients: [{
                         name: 'Wheat Tortilla',
                         order: 2,
-                        additionalCost: '$0.10'
+                        additionalCost: '0.10'
                     },
                     {
                         name: 'Wheat Tortilla',
                         order: 2,
-                        additionalCost: '$0.10'
+                        additionalCost: '0.10'
                     },
                     {
                         name: 'No Tortilla',
                         order: 1,
-                        subtractableCost: '$0.10'
+                        subtractableCost: '0.10'
                     },
                     {
                         name: 'Pinto Beans',
                         order: 3,
-                        subtractableCost: '$0.10'
+                        subtractableCost: '0.10'
                     }
                 ],
                 additionalIngredients: [{
                         name: 'Cheddar Cheese',
                         order: 3,
-                        additionalCost: '$0.99'
+                        additionalCost: '0.99'
                     },
                     {
                         name: 'Sour Cream',
@@ -179,13 +179,13 @@ const rest = new Restaurants({
                     {
                         name: 'Roma tomato',
                         order: 4,
-                        additionalCost: '$0.20'
+                        additionalCost: '0.20'
                     }
                 ],
                 removableIngredients: [{
                         name: 'Tortilla',
                         order: 2,
-                        subtractableCost: '$0.10'
+                        subtractableCost: '0.10'
                     },
                     {
                         name: 'Refried Beans',
@@ -204,7 +204,7 @@ const rest = new Restaurants({
                     },
                     {
                         name: "Dorito's Cool Ranch",
-                        additionalCost: '$1.38',
+                        additionalCost: '1.38',
                         maxSelections: 10,
                         minSelections: 0,
                         soldOut: false,
@@ -212,7 +212,7 @@ const rest = new Restaurants({
                     },
                     {
                         name: "Caesar Salad",
-                        additionalCost: '$3.38',
+                        additionalCost: '3.38',
                         maxSelections: 10,
                         minSelections: 0,
                         soldOut: false,
@@ -229,7 +229,7 @@ const rest = new Restaurants({
                 ],
                 drinks: [{
                         name: 'Water on the rocks',
-                        additionalCost: '$0.01',
+                        additionalCost: '0.01',
                         maxSelections: 10,
                         minSelections: 0,
                         soldOut: false,
@@ -237,7 +237,7 @@ const rest = new Restaurants({
                     },
                     {
                         name: 'Komrade Cola',
-                        additionalCost: '$0.99',
+                        additionalCost: '0.99',
                         maxSelections: 10,
                         minSelections: 0,
                         soldOut: false,
@@ -249,7 +249,7 @@ const rest = new Restaurants({
         {
             name: "!Cinnamon @ Sticks!",
             category: "!sweets !@#and!@# treats!",
-            price: "$2.00",
+            price: "2.00",
             description: "You Cinna you want some?",
             order: 1,
             soldOut: false,
