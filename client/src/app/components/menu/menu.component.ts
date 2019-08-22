@@ -53,10 +53,4 @@ export class MenuComponent implements OnInit {
       relativeTo: this.route
     });
   }
-
-  reduceSelectionKey(checkout: { selections: Selection[] }, key: string) {
-    return checkout.selections.reduce(
-      (accumulator, currentValue) => accumulator + Number(currentValue[key]), 0
-    );
-  }
 }

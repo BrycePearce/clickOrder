@@ -9,6 +9,9 @@ import * as fromApp from '../../store/app.reducer';
 import { map, take } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 
+// Helpers
+import { UtilityService } from './../../serivces/utilities/utility.service';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -18,7 +21,7 @@ export class HeaderComponent implements OnInit {
   public restaurant: Restaurant;
   public checkout: Observable<{ selections: Selection[] }> = this.store.select('checkout');
 
-  constructor(private store: Store<fromApp.AppState>) { }
+  constructor(private store: Store<fromApp.AppState>, private utilityService: UtilityService) { }
 
   ngOnInit() {
     this.setDisplayData();

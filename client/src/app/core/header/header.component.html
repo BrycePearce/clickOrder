@@ -13,7 +13,9 @@
       This is where the address text will go
       <div class="text-center">Phone number here</div>
     </small> -->
-    <small class="banner-text shopping-cart"> ({{(checkout | async).selections.length}}) Shopping Cart</small>
+    <small class="banner-text shopping-cart"> ({{utilityService.reduceSelectionKey(checkout | async, 'quantity')}})
+      Shopping
+      Cart</small>
   </div>
 
   <!-- Menu Navigation -->
