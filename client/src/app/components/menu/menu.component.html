@@ -21,8 +21,12 @@
   </li>
 </ul>
 
-<div class="d-flex justify-content-between">
-  <div>{{(checkout | async).selections.length}}</div>
-  <div>View Order</div>
-  <div>{{calculateTotalCost(checkout | async) | currency}}</div>
+<div *ngIf="(checkout | async).selections.length > 0" class="d-flex w-100 sticky"
+  style="justify-content: center; background-color: white; padding: 12px 16px; ">
+  <button class="d-flex justify-content-between"
+    style="background-color: #0070eb; flex: 0 0 100%; max-width: 100%; padding: 8px 16px 7px; color:white">
+    <div>{{reduceSelectionKey(checkout | async, 'quantity')}}</div>
+    <div>View Order</div>
+    <div>{{reduceSelectionKey(checkout | async, 'price') | currency}}</div>
+  </button>
 </div>

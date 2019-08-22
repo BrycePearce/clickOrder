@@ -54,9 +54,9 @@ export class MenuComponent implements OnInit {
     });
   }
 
-  calculateTotalCost(checkout: { selections: Selection[] }) {
+  reduceSelectionKey(checkout: { selections: Selection[] }, key: string) {
     return checkout.selections.reduce(
-      (accumulator, currentValue) => accumulator + Number(currentValue.price), 0
+      (accumulator, currentValue) => accumulator + Number(currentValue[key]), 0
     );
   }
 }
