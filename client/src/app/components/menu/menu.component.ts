@@ -53,4 +53,10 @@ export class MenuComponent implements OnInit {
       relativeTo: this.route
     });
   }
+
+  loadCheckout() {
+    this.router.navigate(['checkout'], {
+      relativeTo: this.route
+    });
+  }
 }

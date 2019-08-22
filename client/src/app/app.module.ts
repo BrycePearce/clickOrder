@@ -12,6 +12,7 @@ import { RestaurantEffects } from './components/store/restaurant.effects';
 import * as fromApp from './store/app.reducer'; // global state
 
 // Component Modules
+import { CheckoutModule } from './components/checkout/checkout.module';
 import { MenuModule } from './components/menu/menu.module';
 import { CoreModule } from './core/core.module';
 
@@ -32,6 +33,7 @@ import { UtilityService } from './serivces/utilities/utility.service';
     CoreModule,
     MenuModule,
     SelectionModule,
+    CheckoutModule
   ],
   declarations: [ // Components, directives and pipes are placed in module's declarations
     AppComponent

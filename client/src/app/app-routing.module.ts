@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 
 // Components
 import { SelectionComponent } from './components/selection/selection.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 import { MenuComponent } from './components/menu/menu.component';
 
 const routes: Routes = [
@@ -22,6 +23,10 @@ const routes: Routes = [
                     {
                         path: ':category/:selectionId',
                         component: SelectionComponent
+                    },
+                    {
+                        path: 'checkout',
+                        component: CheckoutComponent
                     }
                 ],
             },
