@@ -1,3 +1,16 @@
-<p>
-  checkout works!
-</p>
+<div class="px-3 py-4">
+  <div class="d-flex">
+    <h3 class="">Your Order</h3>
+    <h6 class="align-self-end ml-auto">Add Items</h6>
+  </div>
+
+  <ul>
+    <li *ngFor="let selection of (checkout | async).selections; let i = index">
+      <div class="d-flex">
+        <span class="numberSquare">{{selection.quantity}}</span>
+        <span class="align-self-end">{{selection.name}}</span>
+        <span class="align-self-end ml-auto">{{selection.price | currency}}</span>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/internal/Observable';
+import { Component, OnInit } from '@angular/core';
 import { map, take } from 'rxjs/operators';
-import { Store } from '@ngrx/store';
 
 // Ngrx
 import * as fromApp from '../../store/app.reducer';
+import { Store } from '@ngrx/store';
 
 // Services
 import { UtilityService } from './../../serivces/utilities/utility.service';
@@ -15,7 +16,6 @@ import { Restaurant, Selection } from '../../models/RestaurantModel';
 // Third Party
 import startCase from 'lodash-es/startCase';
 import sortBy from 'lodash-es/sortBy';
-import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-menu',

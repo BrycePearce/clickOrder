@@ -24,13 +24,5 @@ export class HeaderComponent implements OnInit {
   constructor(private store: Store<fromApp.AppState>, private utilityService: UtilityService) { }
 
   ngOnInit() {
-    this.setDisplayData();
-  }
-
-  setDisplayData() {
-    this.store.select('restaurant')
-      .pipe(map(restaurantState => restaurantState.restaurant), take(1)).subscribe((restaurant: Restaurant) => {
-        this.restaurant = restaurant;
-      });
   }
 }
