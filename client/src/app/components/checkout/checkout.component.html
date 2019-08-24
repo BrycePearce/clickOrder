@@ -1,11 +1,11 @@
 <div class="px-3 py-4">
   <div class="d-flex">
     <h3 class="">Your Order</h3>
-    <h6 class="align-self-end ml-auto tealText">Add Items</h6>
+    <h6 [routerLink]="['../']" class="align-self-end ml-auto tealText">Add Items</h6>
   </div>
   <!-- Selection -->
-  <ul>
-    <li *ngFor="let selection of (checkout | async).selections; let i = index" class="selection py-3">
+  <ul class="mb-0">
+    <li *ngFor="let selection of (checkout | async).selections; let i = index" class="selection border-bottom py-3">
       <div class="row">
         <div class="col-1 mr-1">
           <span class="tealText font-weight-bolder numberSquare px-2">{{selection.quantity}}</span>
