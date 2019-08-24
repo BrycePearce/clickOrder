@@ -42,6 +42,7 @@ ul {
 .add-selection-btn {
   flex: 0 0 100%;
   background-color: #0070eb;
+  border-color: #0066d6;
   padding: 8px 16px 7px;
 }
 
@@ -55,4 +56,5 @@ ul {
 
 .btn[disabled] {
   background-color: #d4d4db;
+  border-color: #d4d4db;
 }

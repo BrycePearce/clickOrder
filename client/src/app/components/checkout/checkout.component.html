@@ -1,16 +1,29 @@
 <div class="px-3 py-4">
   <div class="d-flex">
     <h3 class="">Your Order</h3>
-    <h6 class="align-self-end ml-auto">Add Items</h6>
+    <h6 class="align-self-end ml-auto tealText">Add Items</h6>
   </div>
 
+  <hr class="backgroundGray mb-0">
+
   <ul>
-    <li *ngFor="let selection of (checkout | async).selections; let i = index">
-      <div class="d-flex">
-        <span class="numberSquare">{{selection.quantity}}</span>
-        <span class="align-self-end">{{selection.name}}</span>
-        <span class="align-self-end ml-auto">{{selection.price | currency}}</span>
+    <li *ngFor="let selection of (checkout | async).selections; let i = index" class="border-bottom py-3">
+      <!-- Selection -->
+      <div class="row">
+        <div class="col-1 mr-1">
+          <span class="tealText font-weight-bolder numberSquare px-2">{{selection.quantity}}</span>
+        </div>
+        <div class="col-7 ml-2 text-nowrap">
+          {{selection.name}}
+        </div>
+        <div class="col text-right">{{selection.price | currency}}</div>
       </div>
+      <!-- Sides -->
+      <ul>
+        <li *ngFor="let side of getSideList(selection)">
+          {{side.name}}
+        </li>
+      </ul>
     </li>
   </ul>
 </div>

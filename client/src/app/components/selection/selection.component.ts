@@ -105,12 +105,17 @@ export class SelectionComponent implements OnInit {
     selection.image = this.selection.image;
     selection.price = this.calculateTotalCost().toString();
     selection.category = this.selection.category;
-    selection.comboSelections.sides.push(
-      this.selection.comboSelections.sides.find(side => side._id === this.selectionForm.value.sides._id)
-    );
-    selection.comboSelections.drinks.push(
-      this.selection.comboSelections.drinks.find(drink => drink._id === this.selectionForm.value.drinks._id)
-    );
+
+    const side = this.selection.comboSelections.sides.find(sideList => sideList._id === this.selectionForm.value.sides._id);
+    if (side) {
+      selection.comboSelections.sides.push(side);
+    }
+
+    const drink = this.selection.comboSelections.drinks.find(drinkList => drinkList._id === this.selectionForm.value.drinks._id);
+    if (drink) {
+      selection.comboSelections.drinks.push(drink);
+    }
+
     return selection;
   }
 }

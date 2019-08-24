@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs/internal/Observable';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 // Models
 import { Selection } from '../../models/RestaurantModel';
@@ -13,15 +13,14 @@ import { Store } from '@ngrx/store';
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.scss']
 })
-export class CheckoutComponent implements OnInit {
+export class CheckoutComponent {
   public checkout: Observable<{ selections: Selection[] }> = this.store.select('checkout');
 
   constructor(private store: Store<fromApp.AppState>) { }
 
-  ngOnInit() {
-  }
-
-  wew(asd) {
-    console.log(asd)
+  getSideList(selection: Selection) {
+    const sides = selection.comboSelections.sides;
+    const drinks = selection.comboSelections.drinks;
+    return [...sides, ...drinks];
   }
 }
