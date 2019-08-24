@@ -22,6 +22,18 @@ ul {
   list-style-type: none;
 }
 
+.theme-color {
+  color: #007bff;
+}
+
+.theme-background-color {
+  background-color: #007bff;
+}
+
+.theme-border-color {
+  border-color: #007bff;
+}
+
 /* You can add global styles to this file, and also import other style files */
 @media only screen and (min-width: 320px) and (max-width: 479px) {
   h1 {

@@ -1,14 +1,14 @@
 <div class="px-3 py-4">
   <div class="d-flex">
     <h3 class="">Your Order</h3>
-    <h6 [routerLink]="['../']" class="align-self-end ml-auto tealText">Add Items</h6>
+    <h6 [routerLink]="['../']" class="align-self-end ml-auto theme-color">Add Items</h6>
   </div>
   <!-- Selection -->
   <ul class="mb-0">
     <li *ngFor="let selection of (checkout | async).selections; let i = index" class="selection border-bottom py-3">
       <div class="row">
         <div class="col-1 mr-1">
-          <span class="tealText font-weight-bolder numberSquare px-2">{{selection.quantity}}</span>
+          <span class="theme-color font-weight-bolder numberSquare px-2">{{selection.quantity}}</span>
         </div>
         <span class="col-7 ml-2 text-nowrap">
           {{selection.name}}
