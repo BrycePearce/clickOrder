@@ -1,6 +1,9 @@
 import { Observable } from 'rxjs/internal/Observable';
 import { Component } from '@angular/core';
 
+// Services
+import { UtilityService } from './../../serivces/utilities/utility.service';
+
 // Models
 import { Selection } from '../../models/RestaurantModel';
 
@@ -16,7 +19,7 @@ import { Store } from '@ngrx/store';
 export class CheckoutComponent {
   public checkout: Observable<{ selections: Selection[] }> = this.store.select('checkout');
 
-  constructor(private store: Store<fromApp.AppState>) { }
+  constructor(private store: Store<fromApp.AppState>, private utilityService: UtilityService) { }
 
   getSideList(selection: Selection) {
     const sides = selection.comboSelections.sides;

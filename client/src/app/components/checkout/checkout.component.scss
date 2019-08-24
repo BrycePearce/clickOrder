@@ -8,7 +8,7 @@
 }
 
 .tealText {
-  color: #0070eb;
+  color: #007bff;
 }
 
 .backgroundGray {
@@ -17,4 +17,12 @@
 
 .border-bottom {
   border-bottom-color: #F5F5F5;
+}
+
+li.selection:first-child {
+  border-top: 1px solid #c9c9c9 !important;
+}
+
+li.selection:last-child {
+  border-bottom: 1px solid #c9c9c9 !important;
 }
