@@ -48,6 +48,7 @@ router.post('/:restaurantId/menu/uploadImage', images.multer.single('image'), im
 });
 
 // reference: https://stripe.com/docs/charges
+// todo: store record of charge in database, need records of all transactions
 router.post('/:restaurantId/payment', async function (req, res) {
     // Token is created using Checkout or Elements!
     // Get the payment token ID submitted by the form:
