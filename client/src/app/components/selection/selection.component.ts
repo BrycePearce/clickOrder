@@ -33,7 +33,7 @@ export class SelectionComponent implements OnInit {
   }
 
   loadSelection() {
-    // todo: handle invalid cases. Navigate to 'Not Found' component
+    // todo: handle invalid cases. Navigate to 'Not Found' component. Handle unsubscribe
     const category = this.route.snapshot.url[0].path;
     const selectionId = this.route.snapshot.url[1].path;
     this.store.select('restaurant')

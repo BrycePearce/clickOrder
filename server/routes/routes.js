@@ -1,12 +1,15 @@
 'use strict';
-// todo: make this menu routes file?
+// todo: rename this to menu routes file?
 const express = require('express');
 const router = express.Router();
 
 // Middleware
 const images = require('../middleware/images');
 
-router.get('/:restaurantId/menu', function (req, res) {
+// Schemas
+const Restaurants = require('../models/Restaurants.js');
+
+router.get('/:restaurantId/menu', function (req, res) { // todo: potentially seperate customization into a seperate route (called after intial call resolves, or customization page loaded)
     Restaurants.findOne({})
         .then(restaurants => {
             return res.status(200).json(restaurants);
@@ -26,7 +29,8 @@ router.post('/:restaurantId/menu/uploadImage', images.multer.single('image'), im
     }
 
     // 200 OK (todo: delete when entry in db is done)
-    res.send(data.imageUrl);
+    console.log('done', data.imageUrl);
+    return res.status(200);
 
     // todo: Save the data to the database. https://cloud.google.com/nodejs/getting-started/using-cloud-storage
     // getModel().create(data, (err, savedData) => {
@@ -42,5 +46,22 @@ router.post('/:restaurantId/menu/uploadImage', images.multer.single('image'), im
         error: error.message
     })
 });
+
+// reference: https://stripe.com/docs/charges
+router.post('/:restaurantId/payment', async function (req, res) {
+    // Token is created using Checkout or Elements!
+    // Get the payment token ID submitted by the form:
+    const stripe = require('stripe')([process.env.STRIPE_TEST_KEY]);
+    const token = req.body.token.id; // Using Express
+
+    const charge = await stripe.charges.create({
+        amount: 999,
+        currency: 'usd',
+        description: 'Example charge',
+        source: token
+    });
+    return res.status(200);
+});
+
 
 module.exports = router;

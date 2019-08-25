@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
   public restaurant: Restaurant;
   public checkout: Observable<{ selections: Selection[] }> = this.store.select('checkout');
 
-  constructor(private store: Store<fromApp.AppState>, private utilityService: UtilityService) { }
+  constructor(private store: Store<fromApp.AppState>, public utilityService: UtilityService) { }
 
   ngOnInit() {
   }

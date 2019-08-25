@@ -30,7 +30,7 @@ export class MenuComponent implements OnInit {
 
   constructor(private store: Store<fromApp.AppState>,
     // tslint:disable-next-line: align
-    private router: Router, private route: ActivatedRoute, private utilityService: UtilityService) { }
+    private router: Router, private route: ActivatedRoute, public utilityService: UtilityService) { }
 
   ngOnInit() {
     this.setDisplayData();

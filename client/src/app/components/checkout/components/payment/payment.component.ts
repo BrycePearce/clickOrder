@@ -1,6 +1,9 @@
-// Customization Reference: https://stripe.com/docs/stripe-js/elements/quickstart
-
+// todo: Customization Reference: https://stripe.com/docs/stripe-js/elements/quickstart
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+
+// Services
+import { RestauarantService } from './../../../../serivces/restaurant/restauarant.service';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-payment',
@@ -12,9 +15,10 @@ export class PaymentComponent implements OnInit {
   stripe: stripe.Stripe;
   card: any; // stripe.elements.Element
   cardError: string;
+  loading = false; // todo: implement loading spinner
 
 
-  constructor(private elementRef: ElementRef) { }
+  constructor(private restauarantService: RestauarantService) { }
 
   ngOnInit() {
     this.generateStripePaymentForm();
@@ -38,14 +42,23 @@ export class PaymentComponent implements OnInit {
   }
 
   async onSubmit() {
-    const { source, error } = await this.stripe.createSource(this.card);
-
-    if (error) {
-      // inform of error
-      this.cardError = error.message;
-    } else {
-      console.log('success');
-    }
+    this.loading = true;
+    // Send the token to your server (todo: fix hardcoded name)
+    this.stripe.createToken(this.card).then((token) => {
+      if (token.error) {
+        this.cardError = token.error.message;
+      } else {
+        // Send the token to your server (todo: fix hardcoded name)
+        this.restauarantService.postTransaction('Burger-Kong', token).pipe(take(1)).subscribe(
+          (res) => {
+            console.log('success', res);
+          },
+          (err) => {
+            console.log('failure', err);
+          });
+      }
+      this.loading = false;
+    });
   }
 
 }

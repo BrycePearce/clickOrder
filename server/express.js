@@ -26,6 +26,7 @@ require('./models/seed.js');
 // const router = require('./router')
 
 // Global Middleware
+app.use(express.json());
 app.use(cors()); // todo: remove for prod (enable/disable via some env variables)
 
 // Set Routes
